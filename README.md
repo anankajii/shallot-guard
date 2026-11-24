@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SHALLOTGUARD Prototype
 
 Static Vanilla HTML/CSS/JavaScript prototype for managing shallot farming in Kabupaten Nganjuk. It uses hash routes so the complete experience runs without a backend in **DEMO MODE**.
@@ -47,3 +48,6 @@ Weather is only requested after a valid ADM4 code is manually supplied. The app 
 ## Security
 
 `firestore.rules` denies public access, prevents farmers changing their own role/plan, scopes owner data, and grants admin operations only from trusted user data/custom claims. Validate and test these rules in Firebase Emulator before production.
+=======
+# shallot-guard
+>>>>>>> a838bda66e0cc889370e368ee12140852eab2a0a

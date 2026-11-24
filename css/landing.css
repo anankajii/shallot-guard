@@ -1,8 +1,8 @@
 /* ── Landing layout ── */
 .site-header {
   position: fixed; inset-x: 0; top: 0; z-index: 100;
-  background: rgba(251,249,243,0.92); backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
+  background: rgba(255,249,252,0.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.68);
   transition: border-color var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
   height: var(--topbar-h);
 }
@@ -38,7 +38,7 @@
 .hero-stat-lbl { font-size: 0.8rem; color: var(--muted); margin-top: var(--sp-1); }
 .hero-stat + .hero-stat { border-left: 1px solid var(--border); padding-left: var(--sp-5); }
 .hero-visual { position: relative; }
-.hero-console { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: var(--sp-5); box-shadow: var(--shadow-xl); }
+.hero-console { background: rgba(255,255,255,0.68); border: 1px solid rgba(255,255,255,0.82); border-radius: var(--r-xl); padding: var(--sp-5); box-shadow: var(--shadow-xl); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 .console-topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: var(--sp-4); border-bottom: 1px solid var(--border); margin-bottom: var(--sp-4); }
 .console-dots { display: flex; gap: 6px; }
 .console-dots span { width: 11px; height: 11px; border-radius: 50%; }
