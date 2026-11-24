@@ -1,0 +1,66 @@
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-container/60 transition-shadow duration-200">
+  <div class="h-20 max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md">
+
+    <!-- Brand -->
+    <div class="flex items-center gap-space-md">
+      <a class="flex items-center gap-space-sm group focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green rounded-xl" data-path="beranda" href="index.html">
+        <div class="w-10 h-10 rounded-xl bg-forest-green flex items-center justify-center text-surface-white shadow-sm flex-shrink-0">
+          <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-forest-green group-hover:text-leaf-green transition-colors">SHALLOTGUARD</span>
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-soil-brown mt-0.5">Agritech Nganjuk</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="landing-nav hidden xl:flex items-center gap-space-lg" aria-label="Navigasi utama">
+      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="solusi" href="index.html#solusi">Solusi</a>
+      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="fitur" href="index.html#fitur">Fitur</a>
+      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="cara-kerja" href="index.html#cara-kerja">Cara Kerja</a>
+      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="harga-dan-paket" href="index.html#harga-dan-paket">Harga &amp; Paket</a>
+      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="tentang-kami" href="index.html#tentang-kami">Tentang Kami</a>
+    </nav>
+
+    <!-- CTA + Mobile Toggle -->
+    <div class="flex items-center gap-space-sm md:gap-space-md">
+      <a class="hidden sm:inline-flex items-center justify-center font-label-lg text-label-lg text-forest-green px-space-md py-space-sm rounded-xl hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="login" href="login.html">
+        Masuk
+      </a>
+      <a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-forest-green text-surface-white px-space-md md:px-space-lg py-space-sm md:py-3 rounded-xl hover:bg-leaf-green transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="mulai-sekarang" href="login.html">
+        <span>Mulai Sekarang</span>
+        <span class="material-symbols-outlined text-[16px] hidden sm:inline">arrow_forward</span>
+      </a>
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        id="mobile-menu-btn"
+        class="xl:hidden w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-forest-green hover:bg-surface-container-high transition-colors focus-visible:ring-2 focus-visible:ring-leaf-green"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="material-symbols-outlined text-[22px]">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div
+    id="mobile-menu"
+    class="hidden xl:hidden border-t border-surface-container bg-surface/95 backdrop-blur-md px-margin py-4 flex flex-col gap-2"
+    role="navigation"
+    aria-label="Navigasi mobile"
+  >
+    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#solusi">Solusi</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#fitur">Fitur</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#cara-kerja">Cara Kerja</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#harga-dan-paket">Harga &amp; Paket</a>
+    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#tentang-kami">Tentang Kami</a>
+    <div class="flex gap-3 pt-2 border-t border-surface-container mt-1">
+      <a class="flex-1 text-center font-label-lg text-label-lg text-forest-green border border-surface-container-highest px-4 py-3 rounded-xl hover:bg-surface-container transition-colors" href="login.html">Masuk</a>
+      <a class="flex-1 text-center font-label-lg text-label-lg bg-forest-green text-surface-white px-4 py-3 rounded-xl hover:bg-leaf-green transition-colors shadow-sm" href="login.html">Daftar Gratis</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+/* Admin layout inherits dashboard.css — overrides for admin accent */
+.admin-badge { background: var(--forest); color: #fff; }
+.admin-topbar .topbar-title::before { content: 'Admin · '; color: var(--muted); font-weight: 400; }
+
+/* Admin stats use darker accent */
+.admin-stat .stat-value { font-size: 2rem; }
+.admin-stat .stat-icon  { background: rgba(24,59,43,0.1); }
+
+/* Log table */
+.log-action { font-size: 0.875rem; }
+.log-time   { font-size: 0.8125rem; color: var(--muted); white-space: nowrap; }

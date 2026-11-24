@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>SHALLOTGUARD - Platform Agritech Proteksi &amp; Presisi Bawang Merah</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><link rel="stylesheet" href="css/tailwind.css"/>
+<link rel="stylesheet" href="css/main.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><div id="site-header"></div><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- HERO SECTION WITH EDITORIAL OVERLAY & LIVE METRICS -->
+<section class="relative w-full overflow-hidden bg-surface py-16 md:py-24 lg:py-28" id="beranda">
+<!-- Ambient organic gradient blurs contained within section -->
+<div class="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-sage/30 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-32 w-96 h-96 rounded-full bg-secondary-container/15 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Hero Text Column -->
+<div class="lg:col-span-7 flex flex-col gap-space-md z-10">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-green text-surface-white font-label-md text-label-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+              Agritech Khusus Bawang Merah #1
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-forest-green font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-soil-brown">location_on</span>
+              Sentra Bawang Nganjuk • Jawa Timur
+            </span>
+</div>
+<h1 class="font-display text-display text-forest-green tracking-tight font-bold leading-tight">
+            Kenali Risiko Budidaya Sebelum Menjadi Kerugian.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Kelola budidaya bawang merah dengan informasi cuaca presisi, analisis risiko deterministik berbasis fenologi, dan rekomendasi tindakan terukur dalam satu platform terpadu.
+          </p>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-forest-green text-surface-white px-8 py-4 rounded-xl hover:bg-leaf-green transition-all shadow-lg group" href="login.html">
+<span>Mulai Sekarang Gratis</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-surface-container-lowest text-forest-green px-6 py-4 rounded-xl hover:bg-surface-container transition-all shadow-sm border border-surface-container-highest" href="#cara-kerja">
+<span class="material-symbols-outlined text-[20px] text-leaf-green">play_circle</span>
+<span>Pelajari Fitur &amp; Demo</span>
+</a>
+</div>
+<!-- Ground-Truth Badges -->
+<div class="grid grid-cols-3 gap-3 pt-6 mt-4 bg-surface-container-low/80 backdrop-blur-sm p-5 rounded-2xl border border-surface-container" data-hero-stats>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-forest-green" data-counter="accuracy">98.2%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-snug">Akurasi Kalender Iklim Mikro</span>
+</div>
+<div class="flex flex-col border-l border-surface-container-highest pl-3">
+<span class="font-headline-sm text-headline-sm font-bold text-forest-green"><span data-counter="poktan">12</span>+ Poktan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-snug">Sukomoro, Bagor &amp; Rejoso</span>
+</div>
+<div class="flex flex-col border-l border-surface-container-highest pl-3">
+<span class="font-headline-sm text-headline-sm font-bold text-forest-green">−<span data-counter="savings">34</span>%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-snug">Efisiensi Biaya Fungisida</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual Mockup Column (Asymmetric Agritech Console) -->
+<div class="lg:col-span-5 relative mt-8 lg:mt-0">
+<div class="relative w-full rounded-2xl bg-surface-white p-5 shadow-2xl ring-1 ring-surface-container-high">
+<!-- Console Topbar -->
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-amber"></span>
+<span class="w-3 h-3 rounded-full bg-leaf-green"></span>
+<span class="ml-2 font-label-md text-label-md text-muted">Lahan Sawah Sukomoro Blok-04 (Tajuk)</span>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm bg-sage text-leaf-green px-2.5 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[13px]">bolt</span> AKTIF
+              </span>
+</div>
+<!-- Risk Overview Banner -->
+<div class="mt-4 p-4 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-soil-brown uppercase tracking-wider">Status Risiko Moler / Trotol</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-cream text-amber font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">warning</span> WASPADA (68%)
+                </span>
+</div>
+<p class="font-title-md text-title-md text-forest-green leading-snug">
+                Potensi Embun Asam Pagi: Kelembapan 91% pada 04:00 - 06:30 WIB
+              </p>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-leaf-green">verified</span>
+<span>Rekomendasi Dinas PHT: Bilas air bersih sebelum 07:00 • Tunda fungisida sistemik</span>
+</div>
+</div>
+<!-- Mini Live Sparkline & Agronomy Cards -->
+<div class="grid grid-cols-2 gap-3 mt-3">
+<div class="p-3 rounded-xl bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-muted">Fase Tanaman</span>
+<span class="font-headline-sm text-headline-sm font-bold text-forest-green">38 HST</span>
+<span class="font-label-sm text-label-sm text-leaf-green mt-1">Pembentukan Umbi Maksimal</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-muted">Estimasi Margin Panen</span>
+<span class="font-headline-sm text-headline-sm font-bold text-forest-green">Rp28.500/kg</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container mt-1">Surplus Poktan +22%</span>
+</div>
+</div>
+<!-- Inline SVG Micro Chart -->
+<div class="mt-4 p-3 rounded-xl bg-surface-container-low">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm font-semibold text-forest-green">Dinamika Tekanan Sporulasi Jamur (7 Hari)</span>
+<span class="font-label-sm text-label-sm text-muted">BMKG Sukomoro</span>
+</div>
+<svg class="w-full h-16 text-leaf-green" data-sparkline fill="none" viewBox="0 0 300 60">
+<path d="M0,45 Q50,55 90,30 T180,15 T240,40 T300,20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0,45 Q50,55 90,30 T180,15 T240,40 T300,20 L300,60 L0,60 Z" fill="currentColor" fill-opacity="0.12"></path>
+<circle class="fill-onion-red" cx="180" cy="15" r="4"></circle>
+</svg>
+<div class="flex justify-between text-[10px] text-muted pt-1">
+<span>Sen</span><span>Sel</span><span>Rab (Puncak)</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+</div>
+</div>
+</div>
+<!-- Floated Verified Badge Overlay -->
+<div class="hidden sm:flex absolute -bottom-6 -left-6 bg-forest-green text-surface-white p-4 rounded-xl shadow-xl max-w-xs items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-leaf-green flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary-container">Agronomi Deterministik</span>
+<span class="font-title-md text-title-md leading-tight">Bebas bias sponsor pestisida kimia</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROBLEM STATEMENT: REALITY OF NGANJUK SHALLOT FARMERS -->
+<section class="w-full bg-surface-container-low py-20 lg:py-28" id="solusi">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div class="max-w-xl">
+<span class="font-label-md text-label-md text-soil-brown uppercase tracking-wider font-semibold">Tantangan Lapangan Nyata</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold mt-1">
+            Mengapa Petani Sering Terlambat Mengantisipasi Kerugian?
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Budidaya bawang merah adalah pertaruhan modal tinggi. Tanpa indikator dini berbasis fenologi, keputusan semprot sering kali berujung pemborosan atau gagal panen.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-md">
+<!-- Problem Card 1 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center text-onion-red mb-4">
+<span class="material-symbols-outlined text-[28px]">coronavirus</span>
+</div>
+<h3 class="font-title-md text-title-md text-forest-green mb-2">Serangan Trotol &amp; Moler Mendadak</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Spora <em>Fusarium oxysporum</em> dan <em>Alternaria porri</em> aktif saat kelembapan malam melonjak, namun gejala baru kasat mata saat tanaman sudah layu 30%.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-2 text-onion-red font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>Potensi susut bobot s/d 70%</span>
+</div>
+</div>
+<!-- Problem Card 2 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center text-amber mb-4">
+<span class="material-symbols-outlined text-[28px]">payments</span>
+</div>
+<h3 class="font-title-md text-title-md text-forest-green mb-2">Fluktuasi Harga Pasar Drastis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Harga di Pasar Sukomoro bisa anjlok dari Rp35.000 ke Rp14.000/kg dalam hitungan minggu jika panen raya serentak tanpa perencanaan jadwal tebang.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-2 text-amber font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+<span>Risiko jual di bawah BEP modal</span>
+</div>
+</div>
+<!-- Problem Card 3 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center text-soil-brown mb-4">
+<span class="material-symbols-outlined text-[28px]">water_drop</span>
+</div>
+<h3 class="font-title-md text-title-md text-forest-green mb-2">Embun Asam &amp; Cuaca Ekstrem</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Embun pagi yang pekat tanpa dibilas merusak lapisan lilin daun tajuk. Banyak petani langsung menyemprot kimia tanpa memahami kelembapan kritis.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-2 text-soil-brown font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">air</span>
+<span>Daun menguning dan patah leher</span>
+</div>
+</div>
+<!-- Problem Card 4 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center text-forest-green mb-4">
+<span class="material-symbols-outlined text-[28px]">receipt_long</span>
+</div>
+<h3 class="font-title-md text-title-md text-forest-green mb-2">Biaya Obat &amp; Pupuk Tak Terukur</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Rata-rata 40% ongkos produksi habis untuk pestisida berulang karena sistem semprot kalender buta bukan berdasarkan ambang batas bahaya nyata.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center gap-2 text-forest-green font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">savings</span>
+<span>Pemborosan Rp6-12 jt / hektar</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- VALUE PROPOSITION & SCIENTIFIC PILLARS (NO FAKE HARDWARE / HONEST AGRONOMY) -->
+<section class="w-full bg-surface py-20 lg:py-28" id="keunggulan">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Visual Bento & Field Grounding -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="relative rounded-2xl overflow-hidden shadow-lg h-72">
+<img class="w-full h-full object-cover" alt="Indonesian agronomist and local shallot farmer examining green onion leaves at sunrise in a sprawling farm in Sukomoro Nganjuk with lush agricultural background in natural soft sunlight and deep earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4OPhLlRhaSE3IqUMQUvCkamn8vh1VYytuJObw4OXYT25m9MWwuEjkug83rTX7Lbyav4VDNCehF8vbk0TLU0-xj9tBJLyzhfQbnXGjle51CVB0t7kYR4BL7bu62IQolqOGsZT62jKk0Js2aDwx12xpQxuqBYWjNbZOaDtAT8P1uGsKclecYndVPgbE-Nvod_VRWmFPY7KVSekpAeGaKMs8IoXWP65J41KlWhQSN_4t"/>
+<div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-transparent to-transparent flex items-end p-6">
+<span class="font-title-md text-title-md text-surface-white">Validasi Lapangan Bersama Petani Tajuk &amp; Bauji</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-sage/60 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-leaf-green text-surface-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">science</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-forest-green font-bold">Tanpa Sensor IoT Fiktif</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Kami tidak membebani petani dengan biaya alat sensor mahal yang mudah rusak di sawah becek. SHALLOTGUARD mengombinasikan data radar satelit resmi, stasiun BMKG terdekat, dan fenologi tanaman manual Anda.
+              </p>
+</div>
+</div>
+</div>
+<!-- Pillar List Column -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<span class="font-label-md text-label-md text-leaf-green uppercase tracking-wider font-semibold">Pilar Keunggulan Ilmiah</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold">
+            Agronomi Presisi Berbasis Sains Terbuka &amp; Standar Dinas Pertanian
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Platform kami dibangun bersama para penyuluh berpengalaman di Nganjuk untuk memastikan setiap kalkulasi risiko dapat dipertanggungjawabkan di lapangan sawah.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="p-5 rounded-xl bg-surface-white shadow-sm flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-forest-green text-[22px]">cloud_sync</span>
+<h3 class="font-title-md text-title-md text-forest-green font-semibold">API BMKG &amp; Radar Lokal</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Sinkronisasi cuaca resolusi tinggi mencakup suhu malam, radiasi matahari, dan kelembapan relatif tingkat kecamatan.
+              </p>
+</div>
+<div class="p-5 rounded-xl bg-surface-white shadow-sm flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-forest-green text-[22px]">calendar_month</span>
+<h3 class="font-title-md text-title-md text-forest-green font-semibold">Kalkulasi HST Spesifik</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Kebutuhan nutrisi N-P-K dan ketahanan penyakit disesuaikan dengan Hari Setelah Tanam (HST) varietas Tajuk dan Bauji.
+              </p>
+</div>
+<div class="p-5 rounded-xl bg-surface-white shadow-sm flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-forest-green text-[22px]">verified_user</span>
+<h3 class="font-title-md text-title-md text-forest-green font-semibold">Standar PHT Balitsa</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Protokol Pengendalian Hama Terpadu resmi: prioritas agen hayati (Trichoderma) sebelum rekomendasi bahan aktif kimia.
+              </p>
+</div>
+<div class="p-5 rounded-xl bg-surface-white shadow-sm flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-forest-green text-[22px]">balance</span>
+<h3 class="font-title-md text-title-md text-forest-green font-semibold">Netral Tanpa Endorsement</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Algoritma kami netral dari sponsor produsen pestisida. Rekomendasi semata-mata demi efisiensi biaya dan kesehatan umbi.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS: 4 LANGKAH MUDAH DI LAPANGAN -->
+<section class="w-full bg-surface-container-low py-20 lg:py-28" id="cara-kerja">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-md text-label-md text-soil-brown uppercase tracking-wider font-semibold">Alur Kerja Sederhana</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold mt-1">
+          4 Langkah Mengamankan Panen Anda
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+          Dirancang agar mudah dioperasikan langsung dari ponsel petani saat berada di galengan sawah.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-md relative">
+<!-- Step 1 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col relative group hover:-translate-y-1 transition-transform">
+<span class="font-display text-[40px] font-bold text-sage mb-2">01</span>
+<h3 class="font-title-md text-title-md text-forest-green font-bold mb-2">Petakan Lahan &amp; Varietas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Pilih lokasi sawah (misal: Sukomoro/Bagor), luas petak, tanggal tanam, dan bibit yang digunakan (Tajuk Nganjuk / Bauji).
+          </p>
+<div class="mt-6 flex items-center gap-2 text-forest-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+<span>Konfigurasi &lt; 2 menit</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col relative group hover:-translate-y-1 transition-transform">
+<span class="font-display text-[40px] font-bold text-sage mb-2">02</span>
+<h3 class="font-title-md text-title-md text-forest-green font-bold mb-2">Pantau Skor Risiko Dinamis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Sistem memindai tingkat kelembapan malam, curah hujan, dan menghitung skor ancaman Trotol, Moler, dan Ulat Grayak.
+          </p>
+<div class="mt-6 flex items-center gap-2 text-forest-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+<span>Update setiap 3 jam</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col relative group hover:-translate-y-1 transition-transform">
+<span class="font-display text-[40px] font-bold text-sage mb-2">03</span>
+<h3 class="font-title-md text-title-md text-forest-green font-bold mb-2">Eksekusi Tindakan Presisi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Terima panduan taktis harian: jadwal bilas embun asam, penyesuaian dosis pupuk susulan, atau anjuran semprot tepat sasaran.
+          </p>
+<div class="mt-6 flex items-center gap-2 text-forest-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+<span>Cegah kebal pestisida</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-6 rounded-2xl bg-surface-white shadow-sm flex flex-col relative group hover:-translate-y-1 transition-transform">
+<span class="font-display text-[40px] font-bold text-sage mb-2">04</span>
+<h3 class="font-title-md text-title-md text-forest-green font-bold mb-2">Catat Finansial &amp; Panen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Simulasikan laba panen berdasarkan proyeksi harga pasar riil serta buku kas digital biaya sewa, buruh, dan sarana produksi.
+          </p>
+<div class="mt-6 flex items-center gap-2 text-forest-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">price_check</span>
+<span>Margin profit terjaga</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE DASHBOARD PREVIEW & HIGHLIGHTED FEATURES -->
+<section class="w-full bg-surface py-20 lg:py-28" id="fitur">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-4">
+<div>
+<span class="font-label-md text-label-md text-leaf-green uppercase tracking-wider font-semibold">Tampilan Antarmuka</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold mt-1">
+            Fitur Utama Dirancang Khusus Spesifik Bawang
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Eksplorasi modul analitik cerdas yang membantu ketua kelompok tani mengorkestrasi ribuan hektar secara serentak.
+        </p>
+</div>
+<!-- Feature Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-md">
+<!-- Feature 1: Peringatan Dini Penyakit Daun (Large Box) -->
+<div class="lg:col-span-8 p-6 md:p-8 rounded-2xl bg-surface-white shadow-md flex flex-col justify-between">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-forest-green text-surface-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-forest-green font-bold">Peringatan Dini Moler &amp; Trotol</h3>
+<span class="font-label-sm text-label-sm text-muted">Matriks Kelembapan Pagi vs Indeks Suhu Tanah</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-cream text-onion-red font-label-sm text-label-sm font-bold">
+              Ambang Kritis 72%
+            </span>
+</div>
+<!-- Interactive UI Simulation inside feature card -->
+<div class="bg-surface-container-low p-4 rounded-xl my-4">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+<div class="p-3 bg-surface-white rounded-lg">
+<span class="font-label-sm text-label-sm text-muted">Kelembapan Udara (05:00)</span>
+<p class="font-headline-sm text-headline-sm font-bold text-forest-green">94% RH</p>
+<span class="font-label-sm text-label-sm text-onion-red font-semibold">• Zona Rawan Embun Bulu</span>
+</div>
+<div class="p-3 bg-surface-white rounded-lg">
+<span class="font-label-sm text-label-sm text-muted">Prediksi Jam Sinar Efektif</span>
+<p class="font-headline-sm text-headline-sm font-bold text-forest-green">6.4 Jam</p>
+<span class="font-label-sm text-label-sm text-leaf-green font-semibold">• Cukup untuk Fotosintesis</span>
+</div>
+<div class="p-3 bg-surface-white rounded-lg">
+<span class="font-label-sm text-label-sm text-muted">Status Ulat Grayak (Spodoptera)</span>
+<p class="font-headline-sm text-headline-sm font-bold text-amber">Sedang</p>
+<span class="font-label-sm text-label-sm text-amber font-semibold">• Pasang Feromon Pengendali</span>
+</div>
+</div>
+<div class="p-3 bg-sage/50 rounded-lg flex items-center justify-between text-forest-green font-body-md text-body-md">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-leaf-green">verified</span>
+<strong>Tindakan Prioritas Hari Ini:</strong> Bilas daun dengan semprotan air tawar bersih sebelum jam 07.00 pagi.
+              </span>
+<span class="font-label-sm text-label-sm font-bold bg-surface-white px-2 py-1 rounded">SOP Nganjuk</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Peringatan dipicu otomatis ketika kondisi mikroklimat memenuhi kurva perkecambahan spora <em>Alternaria</em>, memberi petani waktu persiapan 24–48 jam lebih awal dibanding deteksi visual manual.
+          </p>
+</div>
+<!-- Feature 2: Simulasi Laba Panen What-If (Small Bento) -->
+<div class="lg:col-span-4 p-6 md:p-8 rounded-2xl bg-surface-white shadow-md flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-xl bg-forest-green text-surface-white flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+</div>
+<h3 class="font-title-md text-title-md text-forest-green font-bold mb-1">Simulasi Laba What-If</h3>
+<span class="font-label-sm text-label-sm text-muted">Kalkulasi Fleksibilitas Tebas vs Rogol</span>
+<div class="mt-6 flex flex-col gap-3">
+<div class="flex justify-between items-center text-body-md font-body-md">
+<span class="text-on-surface-variant">Target Panen (Luas 1 Ha)</span>
+<span class="font-bold text-forest-green">14.8 Ton</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-leaf-green h-full rounded-full" style="width: 82%"></div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-1 mt-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-muted">Jual Tebas (55 HST):</span>
+<span class="font-semibold text-forest-green">Rp210 Juta</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-muted">Kering Simpan / Rogol (65 HST):</span>
+<span class="font-bold text-leaf-green">Rp275 Juta (+31%)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<span class="font-label-sm text-label-sm text-soil-brown flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">info</span> Berdasarkan rerata tren Pasar Bawang Sukomoro
+            </span>
+</div>
+</div>
+<!-- Feature 3: Kalender Fase HST Terstruktur -->
+<div class="lg:col-span-6 p-6 md:p-8 rounded-2xl bg-surface-white shadow-md flex flex-col justify-between">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-forest-green text-surface-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">event_repeat</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-forest-green font-bold">Kalender Dinamis HST (Hari Setelah Tanam)</h3>
+<span class="font-label-sm text-label-sm text-muted">Jadwal Nutrisi &amp; Pengairan Presisi</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 my-2 text-center">
+<div class="p-3 rounded-xl bg-surface-container">
+<span class="font-label-sm text-label-sm text-muted block">0 - 15 HST</span>
+<span class="font-label-md text-label-md font-bold text-forest-green">Vegetatif Awal</span>
+<span class="font-label-sm text-label-sm text-leaf-green block mt-1">Pupuk Dasar</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container">
+<span class="font-label-sm text-label-sm text-muted block">16 - 30 HST</span>
+<span class="font-label-md text-label-md font-bold text-forest-green">Anakan</span>
+<span class="font-label-sm text-label-sm text-soil-brown block mt-1">Waspada Ulat</span>
+</div>
+<div class="p-3 rounded-xl bg-secondary-container/50 border border-secondary-fixed">
+<span class="font-label-sm text-label-sm text-leaf-green font-bold block">31 - 50 HST</span>
+<span class="font-label-md text-label-md font-bold text-forest-green">Umbi Aktif</span>
+<span class="font-label-sm text-label-sm text-forest-green block mt-1">KNO3 &amp; Kalium</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container">
+<span class="font-label-sm text-label-sm text-muted block">51 - 65 HST</span>
+<span class="font-label-md text-label-md font-bold text-forest-green">Pematangan</span>
+<span class="font-label-sm text-label-sm text-muted block mt-1">Kurangi Air</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Mencegah kesalahan fatal petani seperti pemberian unsur Nitrogen berlebih saat fase pembentukan umbi yang kerap memicu busuk basah.
+          </p>
+</div>
+<!-- Feature 4: Jurnal Sawah Digital Lapangan -->
+<div class="lg:col-span-6 p-6 md:p-8 rounded-2xl bg-surface-white shadow-md flex flex-col justify-between">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-forest-green text-surface-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-forest-green font-bold">Buku Kas &amp; Jurnal Sawah Digital</h3>
+<span class="font-label-sm text-label-sm text-muted">Rekam Jejak Operasional Terverifikasi</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex justify-between items-center py-1 border-b border-surface-container">
+<span class="font-label-md text-label-md text-forest-green">Pengairan Pompa Diesel (3 Jam)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Rp75.000 • 24 Mei</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container">
+<span class="font-label-md text-label-md text-forest-green">Pencegahan Hayati (Trichoderma sp)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Rp120.000 • 22 Mei</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-label-md text-label-md text-forest-green font-bold">Total Pengeluaran Blok-B s/d Hari Ini</span>
+<span class="font-label-md text-label-md text-forest-green font-bold">Rp14.850.000</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+            Mudah diunduh dalam format PDF atau disetor langsung kepada bank penyalur KUR Pertanian sebagai bukti kelayakan kredit usaha tani.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIAL & REAL CASE STUDY FROM SUKOMORO & BAGOR -->
+<section class="w-full bg-surface-container-low py-20 lg:py-28" id="testimoni">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="p-8 md:p-12 lg:p-16 rounded-3xl bg-forest-green text-surface-white shadow-xl relative overflow-hidden">
+<!-- Background Pattern subtle glow -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-leaf-green/20 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center relative z-10">
+<div class="lg:col-span-4">
+<div class="relative rounded-2xl overflow-hidden shadow-md aspect-square max-w-sm mx-auto">
+<img class="w-full h-full object-cover" alt="Portrait of an experienced Indonesian shallot farmer wearing a brown batik cap and work clothes smiling confidently in his lush green shallot farm field in Sukomoro Nganjuk East Java under golden afternoon sun." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEohqvEeOoTErhPcqYaCarinHLPAaseR1nx4OY5QFTAZhY4c3q8ID2-E2mXgZlGx8pWafzvEteOHSoxOZxZACaxIiC_Dhbdye1c3f_zv-K6tIOlm16MUIa-tG9FgkXvl8oOI5rmUR2nHr9PFrpFqyivkngqFG6R4Q9lNKMu24A8onun_SpjT_swzOMpWh7PV4NM01n80_ukfADmnaeXIc5m33ez6tO_zUFqrIBo7_w"/>
+<div class="absolute bottom-3 left-3 bg-surface/90 text-forest-green px-3 py-1.5 rounded-lg font-label-md text-label-md backdrop-blur-md">
+<strong>Pak Suwandi (54 Th)</strong> • Sukomoro
+              </div>
+</div>
+</div>
+<div class="lg:col-span-8 flex flex-col gap-4">
+<div class="flex items-center gap-1 text-amber">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-2 font-label-sm text-label-sm text-surface-white/80">Studi Kasus Kelompok Tani Rejeki Makmur</span>
+</div>
+<blockquote class="font-headline-md text-headline-md font-semibold leading-relaxed text-surface-white border-l-4 border-leaf-green pl-5">
+              “Dulu kalau musim kabut pagi, kami bingung harus semprot obat apa. Obat makin mahal tapi umbi tetap susut. Dengan SHALLOTGUARD, kami cukup jalankan rekomendasi bilas embun dan menahan semprot kimia jika skor risiko rendah. Musim lalu biaya obat hemat Rp4,8 juta per hektar dan panen tembus 16 ton.”
+            </blockquote>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-surface-white/15">
+<div>
+<span class="font-label-sm text-label-sm text-secondary-container">Hasil Panen Varietas Tajuk</span>
+<p class="font-title-md text-title-md font-bold text-surface-white">16.2 Ton / Ha</p>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary-container">Penghematan Pestisida</span>
+<p class="font-title-md text-title-md font-bold text-surface-white">35% Lebih Hemat</p>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<span class="font-label-sm text-label-sm text-secondary-container">Periode Pengamatan</span>
+<p class="font-title-md text-title-md font-bold text-surface-white">Musim Tanam II 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICING PREVIEW (FREE VS PREMIUM) -->
+<section class="w-full bg-surface py-20 lg:py-28" id="harga-dan-paket">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-md text-label-md text-leaf-green uppercase tracking-wider font-semibold">Investasi Terjangkau</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold mt-1">
+          Pilihan Paket Sesuai Skala Lahan Anda
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+          Mulai gratis untuk petani swadaya kecil atau beralih ke Premium untuk pengelolaan kelompok tani skala komersial.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg max-w-4xl mx-auto">
+<!-- Paket Mandiri (Gratis) -->
+<div class="p-8 rounded-2xl bg-surface-white shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-center mb-4">
+<span class="font-title-md text-title-md text-forest-green font-bold">Paket Petani Mandiri</span>
+<span class="px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface-variant">Swadaya</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              Akses esensial untuk memantau 1 petak sawah pribadi dengan panduan cuaca harian dan indikator fenologi dasar.
+            </p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="font-display text-display font-bold text-forest-green">Rp0</span>
+<span class="font-body-md text-body-md text-muted">/ selamanya</span>
+</div>
+<div class="flex flex-col gap-3.5 mb-8">
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Maksimal 1 Petak Lahan (s/d 0.5 Ha)</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Prakiraan Cuaca BMKG 3 Harian</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Skor Risiko Penyakit Sederhana</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Kalender Tanam Varietas Tajuk &amp; Bauji</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-muted">
+<span class="material-symbols-outlined text-[18px] text-outline-variant">cancel</span>
+<span>Simulasi Laba Panen What-If Lanjutan</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center py-3.5 px-6 rounded-xl bg-surface-container hover:bg-surface-container-high text-forest-green font-label-lg text-label-lg transition-colors" href="#">
+            Daftar Gratis Sekarang
+          </a>
+</div>
+<!-- Paket Poktan Jawara (Premium) -->
+<div class="p-8 rounded-2xl bg-surface-white shadow-xl ring-2 ring-forest-green flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-forest-green text-surface-white font-label-sm text-label-sm font-bold px-4 py-1.5 rounded-bl-xl">
+            Paling Populer
+          </div>
+<div>
+<div class="flex justify-between items-center mb-4">
+<span class="font-title-md text-title-md text-forest-green font-bold">Paket Poktan Jawara</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              Dukungan penuh multi-lahan dengan alert dini WhatsApp otomatis, panduan ramuan PHT, dan export buku kas perbankan.
+            </p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="font-display text-display font-bold text-forest-green">Rp99.000</span>
+<span class="font-body-md text-body-md text-muted">/ bulan / kelompok</span>
+</div>
+<div class="flex flex-col gap-3.5 mb-8">
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green font-semibold">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Hingga 10 Petak Lahan Serentak</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green font-semibold">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Notifikasi Peringatan Dini via WhatsApp</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green font-semibold">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Kalkulator Simulasi Laba &amp; Tebas vs Kering</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green font-semibold">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Jurnal Finansial &amp; Export Laporan PDF Bank</span>
+</div>
+<div class="flex items-center gap-2.5 font-body-md text-body-md text-forest-green font-semibold">
+<span class="material-symbols-outlined text-[18px] text-leaf-green">check_circle</span>
+<span>Konsultasi Khusus Penyuluh Lapangan PPL</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center py-3.5 px-6 rounded-xl bg-forest-green hover:bg-leaf-green text-surface-white font-label-lg text-label-lg transition-colors shadow-md" href="login.html">
+            Mulai Uji Coba 14 Hari
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION ACCORDION -->
+<section class="w-full bg-surface-container-low py-20" id="tentang-kami">
+<div class="max-w-[880px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="text-center mb-12">
+<span class="font-label-md text-label-md text-soil-brown uppercase tracking-wider font-semibold">Tanya Jawab</span>
+<h2 class="font-headline-lg text-headline-lg text-forest-green font-bold mt-1">
+          Pertanyaan Seputar SHALLOTGUARD
+        </h2>
+</div>
+<div class="flex flex-col gap-3" id="faq-container">
+<!-- FAQ 1 -->
+<div class="rounded-xl bg-surface-white p-5 shadow-sm">
+<button class="w-full flex items-center justify-between text-left font-title-md text-title-md text-forest-green font-semibold focus:outline-none" onclick="toggleFaq('faq-1')">
+<span>Apakah saya perlu memasang tiang sensor mahal di sawah saya?</span>
+<span class="material-symbols-outlined text-leaf-green transition-transform" id="faq-1-icon">expand_more</span>
+</button>
+<div class="hidden mt-3 pt-3 border-t border-surface-container font-body-md text-body-md text-on-surface-variant" id="faq-1">
+            Sama sekali tidak. SHALLOTGUARD memanfaatkan data stasiun meteorologi BMKG setempat yang disempurnakan dengan interpolasi citra satelit dan data observasi fenologi sederhana yang Anda masukkan lewat ponsel pintar.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-xl bg-surface-white p-5 shadow-sm">
+<button class="w-full flex items-center justify-between text-left font-title-md text-title-md text-forest-green font-semibold focus:outline-none" onclick="toggleFaq('faq-2')">
+<span>Apakah aplikasi ini cocok untuk varietas selain Tajuk?</span>
+<span class="material-symbols-outlined text-leaf-green transition-transform" id="faq-2-icon">expand_more</span>
+</button>
+<div class="hidden mt-3 pt-3 border-t border-surface-container font-body-md text-body-md text-on-surface-variant" id="faq-2">
+            Platform kami dioptimalkan secara mendalam untuk varietas lokal unggulan Nganjuk: Tajuk (Thailand Nganjuk) dan Bauji, namun juga memiliki konfigurasi spesifik untuk varietas Bima Brebes dan Batu Ijo.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-xl bg-surface-white p-5 shadow-sm">
+<button class="w-full flex items-center justify-between text-left font-title-md text-title-md text-forest-green font-semibold focus:outline-none" onclick="toggleFaq('faq-3')">
+<span>Bagaimana jika sinyal internet di sawah kurang stabil?</span>
+<span class="material-symbols-outlined text-leaf-green transition-transform" id="faq-3-icon">expand_more</span>
+</button>
+<div class="hidden mt-3 pt-3 border-t border-surface-container font-body-md text-body-md text-on-surface-variant" id="faq-3">
+            Aplikasi SHALLOTGUARD memiliki mode offline-first. Data rekomendasi harian dan panduan semprot akan tersimpan di memori ponsel saat Anda mendapatkan sinyal di rumah, dan catatan jurnal sawah akan tersinkronisasi otomatis saat terhubung kembali.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA BANNER -->
+<section class="w-full bg-surface py-20 lg:py-28" id="daftar">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="rounded-3xl bg-forest-green text-surface-white p-8 md:p-14 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+<div class="max-w-2xl mx-auto flex flex-col items-center gap-4 relative z-10">
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-leaf-green text-surface-white font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">eco</span>
+            Mitra Sukses Petani Bawang Nganjuk
+          </span>
+<h2 class="font-headline-lg text-headline-lg font-bold text-surface-white leading-tight">
+            Siap Amankan Panen Bawang Merah Musim Ini?
+          </h2>
+<p class="font-body-lg text-body-lg text-surface-container-high max-w-xl">
+            Bergabunglah bersama ribuan hektar sawah yang telah terlindungi dari serangan trotol mendadak dan fluktuasi biaya semprot.
+          </p>
+<div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+<a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-surface-white text-forest-green px-8 py-4 rounded-xl hover:bg-cream transition-colors shadow-lg font-bold" href="#">
+<span>Buka Akun Petani Sekarang</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-transparent border-2 border-surface-white/40 text-surface-white px-7 py-3.5 rounded-xl hover:bg-surface-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+<span>Hubungi Tim Penyuluh Sukomoro</span>
+</a>
+</div>
+<div class="flex items-center gap-6 mt-6 pt-4 border-t border-surface-white/15 text-surface-container-high font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-secondary-container">done_all</span> Pendaftaran Tanpa Kartu Kredit</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-secondary-container">done_all</span> Pendampingan Kelompok Tani</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION SCRIPTS — landing page modules -->
+<script src="js/landing/faq.js" defer></script>
+<script src="js/landing/hero.js" defer></script>
+<script src="js/landing/sparkline.js" defer></script>
+<script src="js/landing/nav.js" defer></script>
+</div></main><div id="site-footer"></div><script src="js/layout.js" defer></script></body></html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard — SHALLOTGUARD Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="dashboard.html">
+        <div class="logo-mark" style="background:rgba(255,255,255,.15)">A</div>
+        <div><div class="brand-name">Admin Panel</div><div class="brand-sub">SHALLOTGUARD</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Admin</div>
+        <a href="dashboard.html"      class="sidebar-link active"><span class="icon">◉</span> Dashboard</a>
+        <a href="users.html"          class="sidebar-link "><span class="icon"></span> Pengguna</a>
+        <a href="subscriptions.html"  class="sidebar-link "><span class="icon"></span> Langganan</a>
+        <a href="farms.html"          class="sidebar-link "><span class="icon"></span> Lahan</a>
+        <a href="risk-monitoring.html" class="sidebar-link "><span class="icon">△</span> Monitoring Risiko</a>
+        <a href="settings.html"       class="sidebar-link "><span class="icon"></span> Pengaturan</a>
+        <a href="audit-logs.html"     class="sidebar-link "><span class="icon"></span> Audit Logs</a>
+        <div class="sidebar-section">Navigasi</div>
+        <a href="../pages/dashboard.html" class="sidebar-link"><span class="icon">↗</span> App Petani</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="user-initial">A</div>
+          <div><div class="user-name" id="user-name">Admin</div><div class="user-plan">Administrator</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <main class="app-main">
+      <header class="app-topbar admin-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn"></button>
+          <span class="topbar-title">Dashboard</span>
+        </div>
+        <span class="badge badge-admin">ADMIN</span>
+      </header>
+      <div class="app-content page-enter">
+        <div class="page-header">
+          <div><h1 class="page-title">Dashboard Platform</h1><p class="page-subtitle">Statistik dan aktivitas demo SHALLOTGUARD.</p></div>
+          <span class="badge badge-warning">DEMO DATA</span>
+        </div>
+        <div class="stats-grid" style="margin-bottom:2rem">
+          <div class="stat-card admin-stat"><div class="stat-icon"></div><div class="stat-label">Total Pengguna</div><div class="stat-value" id="admin-total-users">—</div></div>
+          <div class="stat-card admin-stat"><div class="stat-icon" style="background:#E6F4EA">Free</div><div class="stat-label">Pengguna Free</div><div class="stat-value" id="admin-free-users">—</div></div>
+          <div class="stat-card admin-stat"><div class="stat-icon" style="background:linear-gradient(135deg,#2a6040,#527A45);color:#fff">P</div><div class="stat-label">Pengguna Premium</div><div class="stat-value" id="admin-premium-users">—</div></div>
+          <div class="stat-card admin-stat"><div class="stat-icon"></div><div class="stat-label">Total Lahan</div><div class="stat-value" id="admin-total-farms">—</div></div>
+        </div>
+        <div class="dashboard-grid">
+          <div class="widget"><div class="widget-header"><span class="widget-title"> Statistik Siklus &amp; Risiko</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+              <div><div class="text-xs text-muted">Total Siklus</div><div style="font-size:1.5rem;font-weight:700;color:var(--forest)" id="admin-total-cycles">—</div></div>
+              <div><div class="text-xs text-muted">Laporan Risiko</div><div style="font-size:1.5rem;font-weight:700;color:var(--amber)" id="admin-risk-reports">—</div></div>
+            </div>
+          </div>
+          <div class="widget"><div class="widget-header"><span class="widget-title"> Aktivitas Terbaru</span></div>
+            <div id="admin-activity"><div class="skeleton" style="height:120px;border-radius:8px"></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/admin-shell.js"></script>
+  <script type="module" src="../js/pages/admin-dashboard-page.js"></script>
+</body>
+</html>

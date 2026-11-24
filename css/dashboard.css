@@ -1,0 +1,101 @@
+/* ── App shell ── */
+/* Sidebar is position:fixed so grid columns don't apply — use block + margin-left instead */
+.app-shell { display: block; min-height: 100vh; }
+.app-sidebar {
+  background: var(--forest); width: var(--sidebar-w);
+  position: fixed; top: 0; left: 0; height: 100vh;
+  overflow-y: auto; z-index: 50; display: flex; flex-direction: column;
+  transition: transform var(--t-slow) var(--ease);
+}
+.app-sidebar::-webkit-scrollbar { width: 0; }
+.sidebar-brand { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-6) var(--sp-5) var(--sp-5); border-bottom: 1px solid rgba(255,255,255,0.08); text-decoration: none; }
+.sidebar-brand .logo-mark { width: 34px; height: 34px; background: rgba(255,255,255,0.12); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.sidebar-brand .brand-name { font-size: 0.9375rem; font-weight: 700; color: #fff; }
+.sidebar-brand .brand-sub  { font-size: 0.65rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
+.sidebar-nav { padding: var(--sp-4) var(--sp-3); flex: 1; }
+.sidebar-section { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); padding: var(--sp-4) var(--sp-3) var(--sp-2); }
+.sidebar-link {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: 9px 12px; border-radius: var(--r-md);
+  color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500;
+  text-decoration: none; transition: background var(--t-fast), color var(--t-fast);
+  margin-bottom: 2px;
+}
+.sidebar-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.sidebar-link.active { background: rgba(255,255,255,0.14); color: #fff; font-weight: 600; }
+.sidebar-link .icon { width: 20px; text-align: center; flex-shrink: 0; font-size: 1rem; }
+.sidebar-link .badge { margin-left: auto; }
+.sidebar-footer { padding: var(--sp-4) var(--sp-3); border-top: 1px solid rgba(255,255,255,0.08); }
+.sidebar-user { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3); border-radius: var(--r-md); cursor: pointer; transition: background var(--t-fast); }
+.sidebar-user:hover { background: rgba(255,255,255,0.08); }
+.user-avatar { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.user-name  { font-size: 0.875rem; font-weight: 600; color: #fff; }
+.user-plan  { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+/* ── Main content area ── */
+.app-main { margin-left: var(--sidebar-w); display: flex; flex-direction: column; min-height: 100vh; }
+.app-topbar {
+  position: sticky; top: 0; z-index: 40; height: var(--topbar-h);
+  background: rgba(251,249,243,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--sp-8); gap: var(--sp-4);
+}
+.topbar-title { font-size: 1rem; font-weight: 600; color: var(--forest); }
+.topbar-actions { display: flex; align-items: center; gap: var(--sp-3); }
+.topbar-user { display: flex; align-items: center; gap: var(--sp-3); font-size: 0.875rem; color: var(--muted); }
+.app-content { flex: 1; padding: var(--sp-8); max-width: var(--page-max); width: 100%; }
+.page-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-8); flex-wrap: wrap; }
+.page-title { font-size: 1.75rem; font-weight: 700; color: var(--forest); margin: 0; font-family: 'Playfair Display', Georgia, serif; min-width: 0; word-break: break-word; }
+.page-subtitle { font-size: 0.9375rem; color: var(--muted); margin: var(--sp-1) 0 0; }
+.page-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; flex-shrink: 0; }
+
+/* ── Dashboard specific ── */
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--sp-5); margin-bottom: var(--sp-8); }
+.dashboard-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--sp-6); }
+.widget { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: var(--sp-6); }
+.widget-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-5); }
+.widget-title  { font-size: 0.9375rem; font-weight: 700; color: var(--forest); }
+
+/* ── Risk indicator ── */
+.risk-bar { height: 8px; background: var(--surface-high); border-radius: var(--r-pill); overflow: hidden; margin: var(--sp-2) 0; }
+.risk-fill { height: 100%; border-radius: var(--r-pill); transition: width 0.8s var(--ease); }
+.risk-low    .risk-fill { background: #2d9348; }
+.risk-medium .risk-fill { background: var(--amber); }
+.risk-high   .risk-fill { background: var(--onion); }
+.risk-low   { --risk-color: #2d9348; }
+.risk-medium{ --risk-color: var(--amber); }
+.risk-high  { --risk-color: var(--onion); }
+
+/* ── Weather widget ── */
+.weather-main { font-size: 2.5rem; font-weight: 700; color: var(--forest); line-height: 1; }
+.weather-cond { font-size: 0.875rem; color: var(--muted); margin-top: var(--sp-2); }
+.weather-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); margin-top: var(--sp-5); }
+.weather-item { background: var(--surface-low); border-radius: var(--r-md); padding: var(--sp-3); }
+.weather-item .label { font-size: 0.75rem; color: var(--muted); }
+.weather-item .val   { font-size: 0.9375rem; font-weight: 600; color: var(--forest); margin-top: 2px; }
+
+/* ── Finance chart ── */
+.chart-wrap { position: relative; height: 220px; }
+
+/* ── Map container ── */
+.map-container { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); }
+#leaflet-map, [id$="-map"] { width: 100%; border-radius: var(--r-lg); }
+
+/* ── Timeline / journal ── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-item  { display: flex; gap: var(--sp-4); padding: var(--sp-4) 0; border-bottom: 1px solid var(--border); position: relative; }
+.tl-item:last-child { border-bottom: none; }
+.tl-dot  { width: 32px; height: 32px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.875rem; color: var(--forest); }
+.tl-body  { flex: 1; }
+.tl-title { font-size: 0.875rem; font-weight: 600; color: var(--forest); }
+.tl-date  { font-size: 0.8125rem; color: var(--muted); margin-top: 2px; }
+.tl-note  { font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px; }
+
+/* ── Mobile nav ── */
+.mobile-nav-bar { display: none; position: fixed; bottom: 0; inset-x: 0; z-index: 50; background: var(--white); border-top: 1px solid var(--border); padding: 8px 0 max(8px, env(safe-area-inset-bottom)); }
+.mobile-nav-bar .nav-items { display: flex; justify-content: space-around; }
+.mobile-nav-bar a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 10px; border-radius: var(--r-md); font-size: 0.6875rem; color: var(--muted); text-decoration: none; transition: color var(--t-fast); }
+.mobile-nav-bar a.active, .mobile-nav-bar a:hover { color: var(--forest); }
+.mobile-nav-bar a .icon { font-size: 1.25rem; }
+.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 49; }

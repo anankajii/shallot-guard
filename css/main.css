@@ -1,0 +1,8 @@
+/* ShallotGuard — CSS entry point */
+@import url('./variables.css');
+@import url('./components.css');
+@import url('./landing.css');
+@import url('./dashboard.css');
+@import url('./admin.css');
+@import url('./animations.css');
+@import url('./responsive.css');

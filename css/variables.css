@@ -1,0 +1,77 @@
+/* ShallotGuard Design Tokens — bright shallot-red / purple palette */
+:root {
+  /* Brand: inspired by red shallot skin and flowers */
+  --forest:  #5A173F;
+  --leaf:    #A4265D;
+  --sage:    #F9DDE8;
+  --cream:   #FFF7FA;
+  --soil:    #7D2449;
+  --onion:   #C52F68;
+  --amber:   #F2A64A;
+  --ink:     #321321;
+  --muted:   #856775;
+  --border:  #F1D9E4;
+  --white:   #FFFFFF;
+
+  /* Landing utility bridge: the generated landing uses these color tokens. */
+  --color-primary: #5A173F;
+  --color-cream: #FFF7FA;
+  --color-surface-container-high: #F7DDE9;
+  --color-soil-brown: #7D2449;
+  --color-on-tertiary-container: #B2386C;
+  --color-leaf-green: #A4265D;
+  --color-surface-container: #FCE8F0;
+  --color-secondary-container: #F7B8D2;
+  --color-on-surface: #321321;
+  --color-error: #C52F68;
+  --color-surface: #FFF9FC;
+  --color-on-surface-variant: #5C394C;
+  --color-amber: #F2A64A;
+  --color-forest-green: #5A173F;
+  --color-surface-container-low: #FFF2F7;
+  --color-muted: #856775;
+  --color-secondary-fixed: #F9DDE8;
+  --color-outline-variant: #EBC8D8;
+  --color-onion-red: #C52F68;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-sage: #F9DDE8;
+  --color-surface-container-highest: #F1D9E4;
+  --color-surface-white: #FFFFFF;
+  --color-on-secondary-container: #7D2449;
+
+  /* Surface */
+  --surface:        #FFF9FC;
+  --surface-low:    #FFF2F7;
+  --surface-mid:    #FCE8F0;
+  --surface-high:   #F7DDE9;
+
+  /* Semantic */
+  --text-primary:   #321321;
+  --text-secondary: #5C394C;
+  --text-muted:     #856775;
+  --text-inverse:   #FFFFFF;
+
+  /* Spacing */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;
+  --sp-4: 1rem;     --sp-5: 1.25rem;  --sp-6: 1.5rem;
+  --sp-8: 2rem;     --sp-10: 2.5rem;  --sp-12: 3rem;
+  --sp-16: 4rem;    --sp-20: 5rem;    --sp-24: 6rem;
+
+  /* Radius */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px;
+  --r-xl: 18px; --r-2xl: 24px; --r-pill: 9999px;
+
+  /* Shadow */
+  --shadow-xs: 0 1px 3px rgba(90,23,63,0.07);
+  --shadow-sm: 0 2px 8px rgba(90,23,63,0.09);
+  --shadow-md: 0 4px 16px rgba(90,23,63,0.12);
+  --shadow-lg: 0 8px 28px rgba(90,23,63,0.15);
+  --shadow-xl: 0 16px 48px rgba(90,23,63,0.18);
+
+  /* Transition */
+  --ease: cubic-bezier(0.4,0,0.2,1);
+  --t-fast: 100ms; --t-base: 150ms; --t-slow: 250ms; --t-modal: 220ms;
+
+  /* Layout */
+  --sidebar-w: 248px; --topbar-h: 64px; --page-max: 1360px; --content-max: 900px;
+}

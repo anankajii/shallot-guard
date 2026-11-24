@@ -1,0 +1,31 @@
+/* ── Scroll reveal ── */
+[data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+[data-reveal].visible { opacity: 1; transform: none; }
+[data-reveal="left"]  { transform: translateX(-20px); }
+[data-reveal="right"] { transform: translateX(20px); }
+[data-reveal].visible { transform: none; }
+
+/* ── Page transition ── */
+.page-enter { animation: page-in 0.2s var(--ease); }
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── Spinner ── */
+.spinner { width: 20px; height: 20px; border: 2.5px solid var(--border); border-top-color: var(--forest); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay { display: flex; align-items: center; justify-content: center; padding: var(--sp-16); }
+
+/* ── Animated counter ── */
+.counter { display: inline-block; }
+
+/* ── Hover lift ── */
+.hover-lift { transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease); }
+.hover-lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+/* ── Fade in ── */
+.fade-in { animation: fade-in 0.3s var(--ease); }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rekomendasi — SHALLOTGUARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="../pages/dashboard.html">
+        <div class="logo-mark">SG</div>
+        <div><div class="brand-name">SHALLOTGUARD</div><div class="brand-sub">Agritech Nganjuk</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Utama</div>
+        <a href="dashboard.html"    class="sidebar-link "><span class="icon">◉</span> Dashboard</a>
+        <a href="farms.html"        class="sidebar-link "><span class="icon"></span> Lahan Saya</a>
+        <a href="crop-cycles.html"  class="sidebar-link "><span class="icon"></span> Siklus Tanam</a>
+        <a href="journal.html"      class="sidebar-link "><span class="icon"></span> Jurnal</a>
+        <div class="sidebar-section">Analitik</div>
+        <a href="weather.html"      class="sidebar-link "><span class="icon"></span> Cuaca Cerdas</a>
+        <a href="risk-analysis.html" class="sidebar-link "><span class="icon">△</span> Analisis Risiko</a>
+        <a href="recommendations.html" class="sidebar-link active"><span class="icon"></span> Rekomendasi</a>
+        <div class="sidebar-section">Keuangan</div>
+        <a href="finance.html"      class="sidebar-link "><span class="icon">Rp</span> Keuangan</a>
+        <a href="mapping.html"      class="sidebar-link "><span class="icon"></span> Peta Lahan</a>
+        <div class="sidebar-section">Akun</div>
+        <a href="subscription.html" class="sidebar-link "><span class="icon"></span> Paket</a>
+        <a href="profile.html"      class="sidebar-link "><span class="icon">◯</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user-info">
+          <div class="user-avatar" id="user-initial">?</div>
+          <div><div class="user-name" id="user-name">Memuat…</div><div class="user-plan" id="user-plan">—</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn"></button>
+          <span class="topbar-title">Rekomendasi</span>
+        </div>
+        <div class="topbar-actions">
+          <span class="topbar-user"><span id="topbar-user-name">—</span></span>
+        </div>
+      </header>
+      <div class="app-content page-enter" id="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Rekomendasi Tindakan</h1>
+            <p class="page-subtitle">Panduan tindakan berdasarkan kondisi budidaya aktual.</p>
+          </div>
+        </div>
+        <div class="card card-sage" style="margin-bottom:1.5rem">
+          <p class="text-sm" style="color:var(--forest);margin:0">Rekomendasi dibangkitkan dari hasil analisis risiko. Jalankan <a href="risk-analysis.html" style="font-weight:700;color:var(--forest)">Analisis Risiko</a> terlebih dahulu untuk rekomendasi yang lebih akurat.</p>
+        </div>
+        <div id="rec-list" style="display:flex;flex-direction:column;gap:1rem">
+          <div class="card" style="border-left:4px solid var(--amber)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div style="flex:1">
+                <span class="badge badge-warning" style="margin-bottom:.75rem">Urgensi Sedang</span>
+                <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 .5rem">Inspeksi Drainase &amp; Daun Pagi Hari</h3>
+                <p class="text-sm text-muted" style="margin:0 0 .75rem"><strong>Alasan:</strong> Kelembapan tinggi + fase pembentukan umbi aktif meningkatkan risiko infeksi Alternaria.</p>
+                <p class="text-sm text-muted" style="margin:0"><strong>Langkah:</strong> 1) Periksa genangan · 2) Bilas daun jika embun tebal · 3) Dokumentasikan gejala jika ada</p>
+              </div>
+              <button class="btn btn-sm" id="rec-done-1"> Selesai</button>
+            </div>
+          </div>
+          <div class="card" style="border-left:4px solid var(--leaf)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div style="flex:1">
+                <span class="badge badge-success" style="margin-bottom:.75rem">Rutin</span>
+                <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 .5rem">Perbarui Jurnal Budidaya</h3>
+                <p class="text-sm text-muted" style="margin:0">Catat kondisi lapangan harian agar evaluasi siklus dapat dilakukan secara akurat.</p>
+              </div>
+              <a href="journal.html" class="btn btn-outline btn-sm">Catat Sekarang</a>
+            </div>
+          </div>
+          <div class="card" style="border-left:4px solid var(--forest)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div style="flex:1">
+                <span class="badge" style="margin-bottom:.75rem">Info Nutrisi</span>
+                <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 .5rem">Aplikasi KNO₃ pada Fase Umbi Aktif (31–50 HST)</h3>
+                <p class="text-sm text-muted" style="margin:0">Varietas Tajuk Nganjuk merespons baik pada pupuk kalium nitrat dosis 15–20 kg/ha saat fase pembentukan umbi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav-bar">
+    <div class="nav-items">
+      <a href="dashboard.html"   class=""><span class="icon">◉</span><span>Dasbor</span></a>
+      <a href="farms.html"       class=""><span class="icon"></span><span>Lahan</span></a>
+      <a href="weather.html"     class=""><span class="icon"></span><span>Cuaca</span></a>
+      <a href="risk-analysis.html" class=""><span class="icon">△</span><span>Risiko</span></a>
+      <a href="finance.html"     class=""><span class="icon">Rp</span><span>Keuangan</span></a>
+    </div>
+  </nav>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/pages/recommendations-page.js"></script>
+</body>
+</html>

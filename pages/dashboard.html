@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard — SHALLOTGUARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="../pages/dashboard.html">
+        <div class="logo-mark">SG</div>
+        <div><div class="brand-name">SHALLOTGUARD</div><div class="brand-sub">Agritech Nganjuk</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Utama</div>
+        <a href="dashboard.html"    class="sidebar-link active"><span class="icon">◉</span> Dashboard</a>
+        <a href="farms.html"        class="sidebar-link "><span class="icon"></span> Lahan Saya</a>
+        <a href="crop-cycles.html"  class="sidebar-link "><span class="icon"></span> Siklus Tanam</a>
+        <a href="journal.html"      class="sidebar-link "><span class="icon"></span> Jurnal</a>
+        <div class="sidebar-section">Analitik</div>
+        <a href="weather.html"      class="sidebar-link "><span class="icon"></span> Cuaca Cerdas</a>
+        <a href="risk-analysis.html" class="sidebar-link "><span class="icon">△</span> Analisis Risiko</a>
+        <a href="recommendations.html" class="sidebar-link "><span class="icon"></span> Rekomendasi</a>
+        <div class="sidebar-section">Keuangan</div>
+        <a href="finance.html"      class="sidebar-link "><span class="icon">Rp</span> Keuangan</a>
+        <a href="mapping.html"      class="sidebar-link "><span class="icon"></span> Peta Lahan</a>
+        <div class="sidebar-section">Akun</div>
+        <a href="subscription.html" class="sidebar-link "><span class="icon"></span> Paket</a>
+        <a href="profile.html"      class="sidebar-link "><span class="icon">◯</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user-info">
+          <div class="user-avatar" id="user-initial">?</div>
+          <div><div class="user-name" id="user-name">Memuat…</div><div class="user-plan" id="user-plan">—</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn"></button>
+          <span class="topbar-title">Dashboard</span>
+        </div>
+        <div class="topbar-actions">
+          <span class="topbar-user"><span id="topbar-user-name">—</span></span>
+        </div>
+      </header>
+      <div class="app-content page-enter" id="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title" id="dash-greeting">Selamat datang!</h1>
+            <p class="page-subtitle">Ringkasan budidaya bawang merah Anda hari ini.</p>
+          </div>
+          <span class="badge" id="dash-plan">FREE</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid" style="margin-bottom:2rem">
+          <div class="stat-card"><div class="stat-icon"></div><div class="stat-label">Total Lahan</div><div class="stat-value" id="stat-farms">—</div></div>
+          <div class="stat-card"><div class="stat-icon"></div><div class="stat-label">Siklus Aktif</div><div class="stat-value" id="stat-cycles">—</div></div>
+          <div class="stat-card"><div class="stat-icon"></div><div class="stat-label">Umur Tanaman</div><div class="stat-value" id="stat-age">—</div></div>
+          <div class="stat-card"><div class="stat-icon"></div><div class="stat-label">Proyeksi Laba</div><div class="stat-value" id="stat-profit">—</div></div>
+        </div>
+
+        <!-- Dashboard grid -->
+        <div class="dashboard-grid">
+          <div>
+            <!-- Weather widget -->
+            <div class="widget" style="margin-bottom:1.5rem">
+              <div class="widget-header">
+                <span class="widget-title"> Cuaca Terkini</span>
+                <a href="weather.html" class="btn btn-ghost btn-sm">Lihat detail →</a>
+              </div>
+              <div id="dash-weather">
+                <p class="text-sm text-muted">Belum ada data cuaca. <a href="weather.html" style="color:var(--forest);font-weight:600">Ambil prakiraan →</a></p>
+              </div>
+            </div>
+            <!-- Risk widget -->
+            <div class="widget" style="margin-bottom:1.5rem">
+              <div class="widget-header">
+                <span class="widget-title">△ Risiko Budidaya</span>
+                <a href="risk-analysis.html" class="btn btn-ghost btn-sm">Analisis →</a>
+              </div>
+              <div>
+                <span class="badge badge-warning">DEMO DATA</span>
+                <p class="text-sm" style="margin:.75rem 0 .5rem;font-weight:600;color:var(--forest)">Risiko: Sedang</p>
+                <div class="risk-bar risk-medium"><div class="risk-fill" style="width:55%"></div></div>
+                <p class="text-sm text-muted" style="margin-top:.5rem">Kelembapan tinggi + fase pembentukan umbi aktif. Pantau daun pagi hari.</p>
+              </div>
+            </div>
+            <!-- Finance mini -->
+            <div class="widget">
+              <div class="widget-header">
+                <span class="widget-title"> Ringkasan Keuangan</span>
+                <a href="finance.html" class="btn btn-ghost btn-sm">Detail →</a>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem">
+                <div><div class="text-xs text-muted">Pemasukan</div><div style="font-size:1.125rem;font-weight:700;color:var(--leaf)" id="dash-income">—</div></div>
+                <div><div class="text-xs text-muted">Pengeluaran</div><div style="font-size:1.125rem;font-weight:700;color:var(--onion)" id="dash-expense">—</div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- Journal -->
+            <div class="widget">
+              <div class="widget-header">
+                <span class="widget-title"> Aktivitas Terbaru</span>
+                <a href="journal.html" class="btn btn-ghost btn-sm">Lihat semua →</a>
+              </div>
+              <div id="dash-journals"><div class="skeleton" style="height:120px;border-radius:10px"></div></div>
+            </div>
+            <!-- Quick actions -->
+            <div class="widget" style="margin-top:1.5rem">
+              <div class="widget-header"><span class="widget-title"> Aksi Cepat</span></div>
+              <div style="display:flex;flex-direction:column;gap:.75rem">
+                <a href="journal.html" class="btn btn-outline btn-wide">+ Catat Aktivitas</a>
+                <a href="farms.html" class="btn btn-outline btn-wide">+ Tambah Lahan</a>
+                <a href="crop-cycles.html" class="btn btn-outline btn-wide">+ Tambah Siklus Tanam</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav-bar">
+    <div class="nav-items">
+      <a href="dashboard.html"   class="active"><span class="icon">◉</span><span>Dasbor</span></a>
+      <a href="farms.html"       class=""><span class="icon"></span><span>Lahan</span></a>
+      <a href="weather.html"     class=""><span class="icon"></span><span>Cuaca</span></a>
+      <a href="risk-analysis.html" class=""><span class="icon">△</span><span>Risiko</span></a>
+      <a href="finance.html"     class=""><span class="icon">Rp</span><span>Keuangan</span></a>
+    </div>
+  </nav>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/pages/dashboard-page.js"></script>
+</body>
+</html>

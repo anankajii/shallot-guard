@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar — SHALLOTGUARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<main class="login-shell">
+  <section class="login-side">
+    <a class="brand" href="index.html">SHALLOT<b>GUARD</b></a>
+    <h1>Mulai catatan tani digital Anda.</h1>
+    <p>Daftar gratis, pantau budidaya bawang merah dengan lebih cerdas.</p>
+  </section>
+  <section class="login-card">
+    <span class="pill">DEMO MODE</span>
+    <h1>Buat akun</h1>
+    <p class="hint">Registrasi Firebase akan aktif setelah kredensial proyek diisi di <code>js/config/firebase-config.js</code>.</p>
+    <form id="register-form">
+      <div class="form-row">
+        <label for="reg-name">Nama Lengkap</label>
+        <input id="reg-name" name="name" required placeholder="Nama Anda">
+      </div>
+      <div class="form-row">
+        <label for="reg-email">Email</label>
+        <input id="reg-email" name="email" type="email" required autocomplete="email" placeholder="nama@email.com">
+      </div>
+      <div class="form-row">
+        <label for="reg-password">Password</label>
+        <input id="reg-password" name="password" type="password" required minlength="8" autocomplete="new-password" placeholder="Minimal 8 karakter">
+      </div>
+      <button class="btn wide" type="submit">Daftar (Demo)</button>
+    </form>
+    <p id="register-message" class="hint" role="alert" style="margin-top:10px"></p>
+    <p class="hint" style="margin-top:16px">Sudah punya akun? <a href="login.html">Masuk</a></p>
+  </section>
+</main>
+<div id="toast-root" aria-live="polite"></div>
+<script type="module" src="js/pages/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jurnal Digital — SHALLOTGUARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="../pages/dashboard.html">
+        <div class="logo-mark">SG</div>
+        <div><div class="brand-name">SHALLOTGUARD</div><div class="brand-sub">Agritech Nganjuk</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Utama</div>
+        <a href="dashboard.html"    class="sidebar-link "><span class="icon">◉</span> Dashboard</a>
+        <a href="farms.html"        class="sidebar-link "><span class="icon"></span> Lahan Saya</a>
+        <a href="crop-cycles.html"  class="sidebar-link "><span class="icon"></span> Siklus Tanam</a>
+        <a href="journal.html"      class="sidebar-link active"><span class="icon"></span> Jurnal</a>
+        <div class="sidebar-section">Analitik</div>
+        <a href="weather.html"      class="sidebar-link "><span class="icon"></span> Cuaca Cerdas</a>
+        <a href="risk-analysis.html" class="sidebar-link "><span class="icon">△</span> Analisis Risiko</a>
+        <a href="recommendations.html" class="sidebar-link "><span class="icon"></span> Rekomendasi</a>
+        <div class="sidebar-section">Keuangan</div>
+        <a href="finance.html"      class="sidebar-link "><span class="icon">Rp</span> Keuangan</a>
+        <a href="mapping.html"      class="sidebar-link "><span class="icon"></span> Peta Lahan</a>
+        <div class="sidebar-section">Akun</div>
+        <a href="subscription.html" class="sidebar-link "><span class="icon"></span> Paket</a>
+        <a href="profile.html"      class="sidebar-link "><span class="icon">◯</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user-info">
+          <div class="user-avatar" id="user-initial">?</div>
+          <div><div class="user-name" id="user-name">Memuat…</div><div class="user-plan" id="user-plan">—</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn"></button>
+          <span class="topbar-title">Jurnal Digital</span>
+        </div>
+        <div class="topbar-actions">
+          <span class="topbar-user"><span id="topbar-user-name">—</span></span>
+        </div>
+      </header>
+      <div class="app-content page-enter" id="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Jurnal Digital</h1>
+            <p class="page-subtitle">Catat aktivitas budidaya harian untuk evaluasi dan audit.</p>
+          </div>
+          <button class="btn" id="add-journal-btn">+ Catat Aktivitas</button>
+        </div>
+        <div class="toolbar">
+          <select class="form-select" id="journal-filter" style="width:auto;min-width:160px">
+            <option value="">Semua Aktivitas</option>
+            <option>Penyiraman</option><option>Pemupukan</option>
+            <option>Pengendalian OPT</option><option>Pemeliharaan</option>
+            <option>Panen</option><option>Pengamatan</option>
+          </select>
+        </div>
+        <div id="journal-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav-bar">
+    <div class="nav-items">
+      <a href="dashboard.html"   class=""><span class="icon">◉</span><span>Dasbor</span></a>
+      <a href="farms.html"       class=""><span class="icon"></span><span>Lahan</span></a>
+      <a href="weather.html"     class=""><span class="icon"></span><span>Cuaca</span></a>
+      <a href="risk-analysis.html" class=""><span class="icon">△</span><span>Risiko</span></a>
+      <a href="finance.html"     class=""><span class="icon">Rp</span><span>Keuangan</span></a>
+    </div>
+  </nav>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/pages/journal-page.js"></script>
+</body>
+</html>
