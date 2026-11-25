@@ -406,7 +406,7 @@ function renderFarmerPage(id) {
     'crop-cycles':   renderCycles,
     journal:         renderJournal,
     weather:         () => { const h = renderWeather(); setTimeout(bindWeather, 0); return h; },
-    'risk-analysis': () => { const h = renderRiskAnalysis(); setTimeout(bindRiskAnalysis, 0); return h; },
+    'risk-analysis': () => { const h = renderRiskAnalysis(premiumGate); setTimeout(bindRiskAnalysis, 0); return h; },
     recommendations: () => { const h = renderRecommendations(); setTimeout(bindRecommendations, 0); return h; },
     finance:         renderFinance,
     mapping:         () => { const h = renderMapping(premiumGate); setTimeout(bindMapping, 0); return h; },
