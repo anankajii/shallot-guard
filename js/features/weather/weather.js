@@ -15,30 +15,45 @@ export function renderWeather() {
         <button class="btn" id="bmkg-fetch-btn">Ambil Prakiraan</button>
       </div>
       <div id="weather-result" class="hint">Belum ada data aktual.</div>
+      <div id="weather-logs" style="margin-top:16px;padding:12px;background:rgba(0,0,0,.05);border-radius:var(--r-md);font-size:0.8125rem;max-height:200px;overflow-y:auto;font-family:monospace;color:var(--muted)"></div>
     </div>`;
+}
+
+function addLog(msg) {
+  const logsDiv = document.getElementById('weather-logs');
+  if (!logsDiv) return;
+  const time = new Date().toLocaleTimeString('id-ID');
+  const line = document.createElement('div');
+  line.textContent = `[${time}] ${msg}`;
+  logsDiv.insertBefore(line, logsDiv.firstChild);
+  if (logsDiv.children.length > 20) logsDiv.removeChild(logsDiv.lastChild);
 }
 
 export function bindWeather() {
   const btn = document.getElementById('bmkg-fetch-btn');
-  console.log('[bindWeather] button found:', btn);
+  addLog('Button binding...');
   
   btn?.addEventListener('click', async () => {
     const code = document.getElementById('adm4-input')?.value.trim();
     const output = document.getElementById('weather-result');
-    console.log('[weather] clicked, code:', code);
+    addLog(`Button clicked, code: ${code || '(empty)'}`);
     
-    if (!code) { output.textContent = 'Masukkan kode ADM4 valid terlebih dahulu.'; return; }
+    if (!code) { 
+      output.textContent = 'Masukkan kode ADM4 valid terlebih dahulu.'; 
+      addLog('ERROR: Code is empty');
+      return; 
+    }
     output.textContent = 'Mengambil data BMKG…';
     try {
-      console.log('[weather] fetching BMKG data for:', code);
+      addLog(`Fetching BMKG data for: ${code}`);
       const data = await fetchBmkg(code);
-      console.log('[weather] data received:', data);
+      addLog(`Data received: ${data?.lokasi?.desa || 'unknown'}`);
       output.innerHTML = `<span class="status">DATA AKTUAL BMKG</span>
         <pre style="white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:10px">${
           JSON.stringify(data?.data?.[0] ?? data, null, 2).slice(0, 2800)
         }</pre>`;
     } catch (err) {
-      console.error('[weather] error:', err);
+      addLog(`ERROR: ${err.message}`);
       output.textContent = 'Data BMKG gagal diambil. ' + err.message;
     }
   });
