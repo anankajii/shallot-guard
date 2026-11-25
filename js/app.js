@@ -214,12 +214,8 @@ function renderProfile() {
 
 function renderAdminGeneric(id) {
   const dataMap = {
-    farms:            ['Monitoring Lahan',      'Pemilik, lokasi umum, dan luas lahan demo.',
-                        state.farms.map(x => [x.name, x.location, x.area + ' m²'])],
     'crop-cycles':    ['Monitoring Siklus',      'Pantau varietas, tanggal tanam, umur, dan status.',
                         state.cycles.map(x => [x.name, x.variety, ageDays(x.date) + ' hari'])],
-    'risk-monitoring':['Risk Monitoring',        'Laporan risiko demo yang menunggu atau telah terverifikasi.',
-                        state.alerts.map(x => [x.type, x.location, x.status])],
     content:          ['Content Management',    'Kelola artikel dan materi demo.',
                         [['Observasi dini gangguan', 'Knowledge', 'Published'], ['Drainase lahan', 'Guide', 'Published']]],
     reports:          ['Reports',               'Ekspor CSV sederhana untuk data demo.',
