@@ -60,10 +60,10 @@
 /* ── Risk indicator ── */
 .risk-bar { height: 8px; background: var(--surface-high); border-radius: var(--r-pill); overflow: hidden; margin: var(--sp-2) 0; }
 .risk-fill { height: 100%; border-radius: var(--r-pill); transition: width 0.8s var(--ease); }
-.risk-low    .risk-fill { background: #2d9348; }
+.risk-low    .risk-fill { background: #A4265D; }
 .risk-medium .risk-fill { background: var(--amber); }
 .risk-high   .risk-fill { background: var(--onion); }
-.risk-low   { --risk-color: #2d9348; }
+.risk-low   { --risk-color: #A4265D; }
 .risk-medium{ --risk-color: var(--amber); }
 .risk-high  { --risk-color: var(--onion); }
 

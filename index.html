@@ -3,7 +3,94 @@
 <html class="scroll-smooth" lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>SHALLOTGUARD - Platform Agritech Proteksi &amp; Presisi Bawang Merah</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><link rel="stylesheet" href="css/tailwind.css"/>
 <link rel="stylesheet" href="css/main.css"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><div id="site-header"></div><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/></head><style>
+/* Landing header nav styles — isolated with sg- prefix */
+.sg-nav-link {
+  padding: 7px 13px; border-radius: 8px;
+  font-size: .9rem; font-weight: 500;
+  color: #748078; text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.sg-nav-link:hover, .sg-nav-link.active {
+  background: #F9DDE8; color: #5A173F; font-weight: 600;
+}
+.sg-login-btn {
+  padding: 9px 18px; border-radius: 10px;
+  font-size: .875rem; font-weight: 600;
+  color: #5A173F; text-decoration: none;
+  transition: background .15s;
+}
+.sg-login-btn:hover { background: #FFF2F7; }
+.sg-cta-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: 10px;
+  font-size: .875rem; font-weight: 700;
+  background: #5A173F; color: #ffffff;
+  text-decoration: none;
+  transition: background .15s, transform .1s;
+  box-shadow: 0 2px 8px rgba(24,59,43,.2);
+}
+.sg-cta-btn:hover { background: #7D2449; transform: translateY(-1px); }
+.sg-mobile-link {
+  padding: 11px 14px; border-radius: 10px;
+  font-size: .9375rem; font-weight: 500;
+  color: #202923; text-decoration: none;
+  transition: background .12s;
+}
+.sg-mobile-link:hover { background: #FFF2F7; }
+
+/* Main content offset for fixed header */
+#sg-header + main,
+body > main:first-of-type {
+  padding-top: 68px;
+}
+</style>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><header id="sg-header" style="position:fixed;inset-x:0;top:0;z-index:100;background:rgba(251,249,243,0.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem);height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem">
+    <!-- Brand -->
+    <a href="index.html" style="display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0">
+      <div style="width:38px;height:38px;border-radius:10px;background:#5A173F;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex-shrink:0">SG</div>
+      <div style="line-height:1.1">
+        <div style="font-size:1rem;font-weight:700;color:#5A173F;letter-spacing:.02em">SHALLOTGUARD</div>
+        <div style="font-size:.65rem;color:#7D2449;text-transform:uppercase;letter-spacing:.08em">Agritech Nganjuk</div>
+      </div>
+    </a>
+    <!-- Desktop Nav -->
+    <nav id="sg-nav" style="display:flex;align-items:center;gap:.25rem">
+      <a href="#solusi"          class="sg-nav-link">Solusi</a>
+      <a href="#fitur"           class="sg-nav-link">Fitur</a>
+      <a href="#cara-kerja"      class="sg-nav-link">Cara Kerja</a>
+      <a href="#harga-dan-paket" class="sg-nav-link">Harga &amp; Paket</a>
+      <a href="#tentang-kami"    class="sg-nav-link">Tentang Kami</a>
+    </nav>
+    <!-- CTA -->
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <a id="sg-login-btn" href="login.html" class="sg-login-btn">Masuk</a>
+      <a href="login.html" class="sg-cta-btn">
+        Mulai Sekarang
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <!-- Hamburger -->
+      <button id="sg-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="sg-mobile-menu"
+        style="display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#FFF2F7;border:none;cursor:pointer;color:#5A173F;transition:background .15s">
+        <svg id="sg-menu-icon"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="sg-close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Drawer -->
+  <div id="sg-mobile-menu" style="display:none;flex-direction:column;gap:4px;padding:1rem clamp(1rem,4vw,2.5rem) 1.25rem;border-top:1px solid #F1D9E4;background:rgba(251,249,243,.97);backdrop-filter:blur(14px)">
+    <a href="#solusi"          class="sg-mobile-link">Solusi</a>
+    <a href="#fitur"           class="sg-mobile-link">Fitur</a>
+    <a href="#cara-kerja"      class="sg-mobile-link">Cara Kerja</a>
+    <a href="#harga-dan-paket" class="sg-mobile-link">Harga &amp; Paket</a>
+    <a href="#tentang-kami"    class="sg-mobile-link">Tentang Kami</a>
+    <div style="display:flex;gap:.75rem;padding-top:.75rem;margin-top:.5rem;border-top:1px solid #F1D9E4">
+      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:600;color:#5A173F;border:1.5px solid #F1D9E4;text-decoration:none">Masuk</a>
+      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:700;background:#5A173F;color:#fff;text-decoration:none">Daftar Gratis</a>
+    </div>
+  </div>
+</header><main class="w-full bg-surface" style="padding-top:68px"><div class="flex flex-col w-full">
 <!-- HERO SECTION WITH EDITORIAL OVERLAY & LIVE METRICS -->
 <section class="relative w-full overflow-hidden bg-surface py-16 md:py-24 lg:py-28" id="beranda">
 <!-- Ambient organic gradient blurs contained within section -->
@@ -742,5 +829,129 @@
 <script src="js/landing/faq.js" defer></script>
 <script src="js/landing/hero.js" defer></script>
 <script src="js/landing/sparkline.js" defer></script>
-<script src="js/landing/nav.js" defer></script>
-</div></main><div id="site-footer"></div><script src="js/layout.js" defer></script></body></html>
+<script>
+// Landing nav — inline, runs after DOM ready, no partial loading needed
+(function() {
+  var header    = document.getElementById('sg-header');
+  var hamburger = document.getElementById('sg-hamburger');
+  var menu      = document.getElementById('sg-mobile-menu');
+  var menuIcon  = document.getElementById('sg-menu-icon');
+  var closeIcon = document.getElementById('sg-close-icon');
+  var nav       = document.getElementById('sg-nav');
+  var loginBtn  = document.getElementById('sg-login-btn');
+  var open      = false;
+
+  // Responsive visibility
+  function applyResponsive() {
+    var w = window.innerWidth;
+    if (w >= 1024) {
+      nav.style.display      = 'flex';
+      hamburger.style.display = 'none';
+      if (loginBtn) loginBtn.style.display = 'inline-flex';
+    } else {
+      nav.style.display      = 'none';
+      hamburger.style.display = 'flex';
+      if (loginBtn) loginBtn.style.display = w >= 480 ? 'inline-flex' : 'none';
+    }
+  }
+  applyResponsive();
+  window.addEventListener('resize', applyResponsive);
+
+  // Scroll shadow
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      header.style.borderBottomColor = '#F1D9E4';
+      header.style.boxShadow = '0 2px 12px rgba(24,59,43,.08)';
+    } else {
+      header.style.borderBottomColor = 'transparent';
+      header.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', function() {
+    open = !open;
+    menu.style.display      = open ? 'flex'  : 'none';
+    menuIcon.style.display  = open ? 'none'  : 'block';
+    closeIcon.style.display = open ? 'block' : 'none';
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  // Close on link click
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      open = false;
+      menu.style.display      = 'none';
+      menuIcon.style.display  = 'block';
+      closeIcon.style.display = 'none';
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Active nav on scroll
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('#sg-nav .sg-nav-link');
+  if (sections.length && navLinks.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.id;
+        navLinks.forEach(function(a) {
+          var match = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('active', match);
+        });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(function(s) { io.observe(s); });
+  }
+})();
+</script>
+</div></main>
+<footer style="background:#5A173F;color:rgba(255,255,255,.75);padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,2.5rem) 2.5rem">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.1)">
+      <div>
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+          <div style="width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff">SG</div>
+          <span style="font-size:1.0625rem;font-weight:700;color:#fff">SHALLOTGUARD</span>
+        </div>
+        <p style="font-size:.875rem;line-height:1.65;max-width:320px;margin:0 0 1rem">Sistem peringatan dini penyakit moler dan manajemen mikroklimat lahan bawang merah berbasis kecerdasan agronomi Nganjuk.</p>
+        <span style="display:inline-flex;align-items:center;gap:.5rem;padding:4px 12px;border-radius:999px;background:rgba(220,232,215,.15);font-size:.8125rem;color:rgba(255,255,255,.8)">✓ Standar Balai Penyuluh Nganjuk</span>
+      </div>
+      <div>
+        <h4 style="color:#fff;font-size:.875rem;font-weight:700;margin:0 0 1rem">Navigasi</h4>
+        <div style="display:flex;flex-direction:column;gap:.5rem">
+          <a href="#solusi"          style="font-size:.875rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Solusi</a>
+          <a href="#fitur"           style="font-size:.875rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Fitur</a>
+          <a href="#cara-kerja"      style="font-size:.875rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Cara Kerja</a>
+          <a href="#harga-dan-paket" style="font-size:.875rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Harga &amp; Paket</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff;font-size:.875rem;font-weight:700;margin:0 0 1rem">Sentra Operasional</h4>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.6;margin:0 0 .75rem">Jl. Raya Sukomoro KM 4, Kabupaten Nganjuk, Jawa Timur 64481</p>
+        <div style="font-size:.8125rem;color:rgba(255,255,255,.65)">halo@shallotguard.id</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;font-size:.8125rem;flex-wrap:wrap;gap:1rem">
+      <p style="margin:0;color:rgba(255,255,255,.5)">© 2026 SHALLOTGUARD Agritech Nusantara.</p>
+      <div style="display:flex;gap:1.5rem">
+        <a href="#" style="color:rgba(255,255,255,.5);text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Privasi</a>
+        <a href="#" style="color:rgba(255,255,255,.5);text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Syarat</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body></html>

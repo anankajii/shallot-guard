@@ -60,3 +60,9 @@
   #toast-root { right: var(--sp-3); bottom: 80px; left: var(--sp-3); }
   .toast { max-width: 100%; }
 }
+
+/* ── Inline landing footer grid responsive ── */
+@media (max-width: 768px) {
+  /* Footer inline grid in index.html */
+  #sg-header ~ main + footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}

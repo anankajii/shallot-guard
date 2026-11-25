@@ -37,7 +37,7 @@ body  { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: ant
   transition: background var(--t-base) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-base) var(--ease);
   cursor: pointer; white-space: nowrap; text-decoration: none;
 }
-.btn:hover   { background: #245438; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:hover   { background: #7D2449; transform: translateY(-1px); box-shadow: var(--shadow-md); }
 .btn:active  { transform: translateY(0); }
 .btn:disabled{ opacity: 0.45; cursor: not-allowed; transform: none; }
 .btn-sm      { padding: 7px 14px; font-size: 0.8125rem; border-radius: var(--r-sm); }
@@ -61,11 +61,11 @@ body  { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: ant
   color: #fff;
 }
 .btn-danger       { background: var(--onion); color: #fff; }
-.btn-danger:hover { background: #8f3e3c; }
+.btn-danger:hover { background: #9B2158; }
 .btn-amber        { background: var(--amber); color: var(--ink); }
-.btn-amber:hover  { background: #c08a30; }
+.btn-amber:hover  { background: #d4842a; }
 .btn-success      { background: var(--leaf); color: #fff; }
-.btn-success:hover{ background: #3f6035; }
+.btn-success:hover{ background: #7D2449; }
 .btn-icon         { padding: 8px; width: 36px; height: 36px; border-radius: var(--r-md); }
 
 /* ── Badge / status chip ── */
@@ -76,11 +76,11 @@ body  { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: ant
   background: var(--sage); color: var(--forest);
 }
 .badge-free     { background: var(--surface-high); color: var(--muted); }
-.badge-premium  { background: linear-gradient(135deg,#2a6040,var(--leaf)); color: #fff; }
+.badge-premium  { background: linear-gradient(135deg,#7D2449,var(--leaf)); color: #fff; }
 .badge-admin    { background: var(--forest); color: #fff; }
 .badge-warning  { background: #FEF3CD; color: #875b15; }
-.badge-danger   { background: #FCEAE9; color: var(--onion); }
-.badge-success  { background: #E6F4EA; color: #2d6a30; }
+.badge-danger   { background: #FCE8F0; color: var(--onion); }
+.badge-success  { background: #FCE8F0; color: #7D2449; }
 .badge-info     { background: #E8F0FE; color: #1a56b0; }
 
 /* ── Cards ── */
@@ -158,7 +158,7 @@ body  { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: ant
   box-shadow: var(--shadow-lg); pointer-events: auto; max-width: 340px;
   animation: toast-in 0.22s var(--ease);
 }
-.toast.success { background: #1e5631; }
+.toast.success { background: #5A173F; }
 .toast.error   { background: var(--onion); }
 .toast.warning { background: #7a5010; }
 @keyframes toast-in { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: none; } }
@@ -200,7 +200,7 @@ body  { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: ant
 
 /* ── Premium gate ── */
 .premium-gate {
-  background: linear-gradient(135deg, var(--forest), #2d5e3e);
+  background: linear-gradient(135deg, var(--forest), #5A173F);
   color: #fff; border-radius: var(--r-xl); padding: var(--sp-10);
   text-align: center;
 }
