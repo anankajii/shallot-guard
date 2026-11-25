@@ -3,10 +3,11 @@ import { isPremium } from '../../core/state.js';
 import { analyzeRisk } from '../../services/risk-service.js';
 
 export function renderRiskAnalysis(openPremiumGate) {
+  console.log('[risk-analysis] isPremium:', isPremium());
   if (!isPremium()) {
     setTimeout(() => openPremiumGate('Analisis Foto Tanaman'), 0);
     return `<div class="page-title-row"><div><h1>Analisis Risiko</h1>
-      <p class="hint">Unggah foto tanaman untuk analisis kesehatan (Premium).</p></div></div>`;
+      <p class="hint">Akun bukan premium. Upgrade untuk akses fitur.</p></div></div>`;
   }
   
   return `
