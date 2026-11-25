@@ -22,6 +22,13 @@
   .hero-stat + .hero-stat { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: var(--sp-5); }
 }
 
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .layout { flex-direction: column; gap: var(--sp-5); }
+  .layout aside { flex: auto; }
+}
+
 @media (max-width: 600px) {
   .app-topbar { height: 58px; padding-inline: var(--sp-4); }
   .topbar-title { font-size: .9375rem; }
@@ -33,7 +40,7 @@
   .widget-header { gap: var(--sp-3); margin-bottom: var(--sp-4); }
   .widget-title { font-size: .875rem; line-height: 1.35; }
   .btn { padding: 9px 14px; font-size: .8125rem; }
-  .stats-grid { gap: var(--sp-3); }
+  .stats-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
   .stat-card { padding: var(--sp-4); }
   .stat-card .stat-value { font-size: 1.35rem; }
   .stat-card .stat-icon { display: none; }
