@@ -1,4 +1,16 @@
 <header id="site-header" style="position:fixed;inset-x:0;top:0;z-index:100;background:#FFF7FA;border-bottom:1px solid #E6DDE6;transition:border-color .2s,box-shadow .2s;height:68px">
+  <style>
+    @media (max-width: 1023px) {
+      #landing-desktop-nav { display: none !important; }
+      #nav-login-btn { display: none !important; }
+      #mobile-menu-btn { display: flex !important; }
+    }
+    @media (max-width: 640px) {
+      #mobile-menu-btn { display: flex !important; }
+      #nav-login-btn { display: none !important; }
+      #landing-desktop-nav { display: none !important; }
+    }
+  </style>
   <div style="max-width:1280px;margin:0 auto;padding:0 clamp(.75rem,2vw,1.5rem);height:100%;display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
 
     <!-- Brand -->
