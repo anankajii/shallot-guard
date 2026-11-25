@@ -1,8 +1,8 @@
 /* ── Landing layout ── */
 .site-header {
   position: fixed; inset-x: 0; top: 0; z-index: 100;
-  background: rgba(255,249,252,0.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.68);
+  background: rgba(251,249,243,0.93); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
   transition: border-color var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
   height: var(--topbar-h);
 }
@@ -16,7 +16,7 @@
 .site-nav a { padding: 7px 13px; border-radius: var(--r-md); font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: background var(--t-fast), color var(--t-fast); }
 .site-nav a:hover, .site-nav a.active { background: var(--sage); color: var(--forest); font-weight: 600; }
 .nav-actions { display: flex; align-items: center; gap: var(--sp-3); }
-.hamburger { display: none; padding: 8px; border: none; background: none; cursor: pointer; color: var(--forest); }
+/* .hamburger base — landing uses #mobile-menu-btn handled inline in header.html */
 .mobile-menu { display: none; position: fixed; inset-x: 0; top: var(--topbar-h); background: var(--white); border-bottom: 1px solid var(--border); padding: var(--sp-4) var(--sp-6); flex-direction: column; gap: var(--sp-2); z-index: 99; box-shadow: var(--shadow-md); }
 .mobile-menu.open { display: flex; animation: slide-down 0.18s var(--ease); }
 @keyframes slide-down { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: none; } }

@@ -1,66 +1,145 @@
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-container/60 transition-shadow duration-200">
-  <div class="h-20 max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md">
+<header id="site-header" style="position:fixed;inset-x:0;top:0;z-index:100;background:rgba(251,249,243,0.93);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s;height:68px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem);height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem">
 
     <!-- Brand -->
-    <div class="flex items-center gap-space-md">
-      <a class="flex items-center gap-space-sm group focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green rounded-xl" data-path="beranda" href="index.html">
-        <div class="w-10 h-10 rounded-xl bg-forest-green flex items-center justify-center text-surface-white shadow-sm flex-shrink-0">
-          <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-        </div>
-        <div class="flex flex-col leading-none">
-          <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-forest-green group-hover:text-leaf-green transition-colors">SHALLOTGUARD</span>
-          <span class="font-label-sm text-label-sm uppercase tracking-widest text-soil-brown mt-0.5">Agritech Nganjuk</span>
-        </div>
-      </a>
-    </div>
+    <a href="index.html" style="display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0">
+      <div style="width:38px;height:38px;border-radius:10px;background:#183B2B;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex-shrink:0">SG</div>
+      <div style="line-height:1.1">
+        <div style="font-size:1rem;font-weight:700;color:#183B2B;letter-spacing:.02em">SHALLOTGUARD</div>
+        <div style="font-size:.65rem;color:#75533D;text-transform:uppercase;letter-spacing:.08em">Agritech Nganjuk</div>
+      </div>
+    </a>
 
     <!-- Desktop Nav -->
-    <nav class="landing-nav hidden xl:flex items-center gap-space-lg" aria-label="Navigasi utama">
-      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="solusi" href="index.html#solusi">Solusi</a>
-      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="fitur" href="index.html#fitur">Fitur</a>
-      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="cara-kerja" href="index.html#cara-kerja">Cara Kerja</a>
-      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="harga-dan-paket" href="index.html#harga-dan-paket">Harga &amp; Paket</a>
-      <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green transition-colors py-space-xs px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="tentang-kami" href="index.html#tentang-kami">Tentang Kami</a>
+    <nav id="landing-desktop-nav" class="landing-nav" style="display:flex;align-items:center;gap:.25rem">
+      <a href="index.html#solusi"        style="padding:7px 13px;border-radius:8px;font-size:.9rem;font-weight:500;color:#748078;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#DCE8D7';this.style.color='#183B2B'" onmouseout="this.style.background='';this.style.color='#748078'">Solusi</a>
+      <a href="index.html#fitur"         style="padding:7px 13px;border-radius:8px;font-size:.9rem;font-weight:500;color:#748078;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#DCE8D7';this.style.color='#183B2B'" onmouseout="this.style.background='';this.style.color='#748078'">Fitur</a>
+      <a href="index.html#cara-kerja"    style="padding:7px 13px;border-radius:8px;font-size:.9rem;font-weight:500;color:#748078;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#DCE8D7';this.style.color='#183B2B'" onmouseout="this.style.background='';this.style.color='#748078'">Cara Kerja</a>
+      <a href="index.html#harga-dan-paket" style="padding:7px 13px;border-radius:8px;font-size:.9rem;font-weight:500;color:#748078;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#DCE8D7';this.style.color='#183B2B'" onmouseout="this.style.background='';this.style.color='#748078'">Harga &amp; Paket</a>
+      <a href="index.html#tentang-kami"  style="padding:7px 13px;border-radius:8px;font-size:.9rem;font-weight:500;color:#748078;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#DCE8D7';this.style.color='#183B2B'" onmouseout="this.style.background='';this.style.color='#748078'">Tentang Kami</a>
     </nav>
 
-    <!-- CTA + Mobile Toggle -->
-    <div class="flex items-center gap-space-sm md:gap-space-md">
-      <a class="hidden sm:inline-flex items-center justify-center font-label-lg text-label-lg text-forest-green px-space-md py-space-sm rounded-xl hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="login" href="login.html">
+    <!-- CTA + Hamburger -->
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <a id="nav-login-btn" href="login.html"
+        style="display:none;align-items:center;justify-content:center;padding:9px 18px;border-radius:10px;font-size:.875rem;font-weight:600;color:#183B2B;text-decoration:none;transition:background .15s"
+        onmouseover="this.style.background='#F0EEE8'"
+        onmouseout="this.style.background=''">
         Masuk
       </a>
-      <a class="inline-flex items-center justify-center gap-2 font-label-lg text-label-lg bg-forest-green text-surface-white px-space-md md:px-space-lg py-space-sm md:py-3 rounded-xl hover:bg-leaf-green transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-leaf-green" data-path="mulai-sekarang" href="login.html">
-        <span>Mulai Sekarang</span>
-        <span class="material-symbols-outlined text-[16px] hidden sm:inline">arrow_forward</span>
+      <a href="login.html"
+        style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-size:.875rem;font-weight:700;background:#183B2B;color:#ffffff;text-decoration:none;transition:background .15s,transform .1s;box-shadow:0 2px 8px rgba(24,59,43,.2)"
+        onmouseover="this.style.background='#245438';this.style.transform='translateY(-1px)'"
+        onmouseout="this.style.background='#183B2B';this.style.transform=''">
+        Mulai Sekarang
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
 
-      <!-- Hamburger (mobile only) -->
-      <button
-        id="mobile-menu-btn"
-        class="xl:hidden w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-forest-green hover:bg-surface-container-high transition-colors focus-visible:ring-2 focus-visible:ring-leaf-green"
-        aria-label="Buka menu navigasi"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="material-symbols-outlined text-[22px]">menu</span>
+      <!-- Hamburger -->
+      <button id="mobile-menu-btn"
+        style="display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#F0EEE8;border:none;cursor:pointer;color:#183B2B;font-size:18px;transition:background .15s"
+        aria-label="Buka menu"
+        onmouseover="this.style.background='#E4E2DD'"
+        onmouseout="this.style.background='#F0EEE8'">
+        <svg id="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="close-icon"     width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Menu Drawer -->
-  <div
-    id="mobile-menu"
-    class="hidden xl:hidden border-t border-surface-container bg-surface/95 backdrop-blur-md px-margin py-4 flex flex-col gap-2"
-    role="navigation"
-    aria-label="Navigasi mobile"
-  >
-    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#solusi">Solusi</a>
-    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#fitur">Fitur</a>
-    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#cara-kerja">Cara Kerja</a>
-    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#harga-dan-paket">Harga &amp; Paket</a>
-    <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-forest-green hover:bg-surface-container-low px-4 py-3 rounded-xl transition-colors" href="index.html#tentang-kami">Tentang Kami</a>
-    <div class="flex gap-3 pt-2 border-t border-surface-container mt-1">
-      <a class="flex-1 text-center font-label-lg text-label-lg text-forest-green border border-surface-container-highest px-4 py-3 rounded-xl hover:bg-surface-container transition-colors" href="login.html">Masuk</a>
-      <a class="flex-1 text-center font-label-lg text-label-lg bg-forest-green text-surface-white px-4 py-3 rounded-xl hover:bg-leaf-green transition-colors shadow-sm" href="login.html">Daftar Gratis</a>
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu"
+    style="display:none;flex-direction:column;gap:4px;padding:1rem clamp(1rem,4vw,2.5rem) 1.25rem;border-top:1px solid #E4E8E1;background:rgba(251,249,243,.97);backdrop-filter:blur(14px)">
+    <a href="index.html#solusi"          style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Solusi</a>
+    <a href="index.html#fitur"           style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Fitur</a>
+    <a href="index.html#cara-kerja"      style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Cara Kerja</a>
+    <a href="index.html#harga-dan-paket" style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Harga &amp; Paket</a>
+    <a href="index.html#tentang-kami"    style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Tentang Kami</a>
+    <div style="display:flex;gap:.75rem;padding-top:.75rem;margin-top:.5rem;border-top:1px solid #E4E8E1">
+      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:600;color:#183B2B;border:1.5px solid #E4E8E1;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Masuk</a>
+      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:700;background:#183B2B;color:#ffffff;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#245438'" onmouseout="this.style.background='#183B2B'">Daftar Gratis</a>
     </div>
   </div>
 </header>
+
+<script>
+(function() {
+  var header     = document.getElementById('site-header');
+  var menuBtn    = document.getElementById('mobile-menu-btn');
+  var menu       = document.getElementById('mobile-menu');
+  var hamburger  = document.getElementById('hamburger-icon');
+  var closeIco   = document.getElementById('close-icon');
+  var loginBtn   = document.getElementById('nav-login-btn');
+  var desktopNav = document.getElementById('landing-desktop-nav');
+
+  // Responsive: show/hide elements based on viewport
+  function applyResponsive() {
+    var w = window.innerWidth;
+    if (w >= 1024) {
+      desktopNav.style.display = 'flex';
+      menuBtn.style.display    = 'none';
+      loginBtn.style.display   = 'inline-flex';
+    } else if (w >= 640) {
+      desktopNav.style.display = 'none';
+      menuBtn.style.display    = 'flex';
+      loginBtn.style.display   = 'inline-flex';
+    } else {
+      desktopNav.style.display = 'none';
+      menuBtn.style.display    = 'flex';
+      loginBtn.style.display   = 'none';
+    }
+  }
+  applyResponsive();
+  window.addEventListener('resize', applyResponsive);
+
+  // Scroll: add shadow to header
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      header.style.borderBottomColor = '#E4E8E1';
+      header.style.boxShadow = '0 2px 12px rgba(24,59,43,.08)';
+    } else {
+      header.style.borderBottomColor = 'transparent';
+      header.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+
+  // Hamburger toggle
+  var menuOpen = false;
+  menuBtn.addEventListener('click', function() {
+    menuOpen = !menuOpen;
+    menu.style.display    = menuOpen ? 'flex'   : 'none';
+    hamburger.style.display = menuOpen ? 'none' : 'block';
+    closeIco.style.display  = menuOpen ? 'block': 'none';
+  });
+
+  // Close menu on link click
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menuOpen = false;
+      menu.style.display      = 'none';
+      hamburger.style.display = 'block';
+      closeIco.style.display  = 'none';
+    });
+  });
+
+  // Active nav on scroll
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('#landing-desktop-nav a');
+  if (sections.length && navLinks.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var id = e.target.id;
+          navLinks.forEach(function(a) {
+            var active = a.getAttribute('href').endsWith('#' + id);
+            a.style.background  = active ? '#DCE8D7' : '';
+            a.style.color       = active ? '#183B2B' : '#748078';
+            a.style.fontWeight  = active ? '600'     : '500';
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(function(s) { io.observe(s); });
+  }
+})();
+</script>
