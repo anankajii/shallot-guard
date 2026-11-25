@@ -19,19 +19,27 @@ export function renderWeather() {
 }
 
 export function bindWeather() {
-  document.getElementById('bmkg-fetch-btn')?.addEventListener('click', async () => {
+  const btn = document.getElementById('bmkg-fetch-btn');
+  console.log('[bindWeather] button found:', btn);
+  
+  btn?.addEventListener('click', async () => {
     const code = document.getElementById('adm4-input')?.value.trim();
     const output = document.getElementById('weather-result');
+    console.log('[weather] clicked, code:', code);
+    
     if (!code) { output.textContent = 'Masukkan kode ADM4 valid terlebih dahulu.'; return; }
     output.textContent = 'Mengambil data BMKG…';
     try {
+      console.log('[weather] fetching BMKG data for:', code);
       const data = await fetchBmkg(code);
+      console.log('[weather] data received:', data);
       output.innerHTML = `<span class="status">DATA AKTUAL BMKG</span>
         <pre style="white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:10px">${
           JSON.stringify(data?.data?.[0] ?? data, null, 2).slice(0, 2800)
         }</pre>`;
-    } catch {
-      output.textContent = 'Data BMKG gagal diambil. Pastikan kode ADM4 dan koneksi tersedia.';
+    } catch (err) {
+      console.error('[weather] error:', err);
+      output.textContent = 'Data BMKG gagal diambil. ' + err.message;
     }
   });
 }
