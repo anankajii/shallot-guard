@@ -20,13 +20,19 @@ document.getElementById('logout-btn')?.addEventListener('click', () => {
 // Hamburger
 const sidebar = document.getElementById('app-sidebar');
 const overlay = document.getElementById('sidebar-overlay');
-document.getElementById('hamburger-btn')?.addEventListener('click', () => {
-  sidebar?.classList.toggle('open');
-  overlay?.classList.toggle('show');
-});
-overlay?.addEventListener('click', () => {
+const hamburger = document.getElementById('hamburger-btn');
+const closeSidebar = () => {
   sidebar?.classList.remove('open');
   overlay?.classList.remove('show');
+  hamburger?.setAttribute('aria-expanded', 'false');
+};
+hamburger?.addEventListener('click', () => {
+  const open = sidebar?.classList.toggle('open');
+  overlay?.classList.toggle('show', open);
+  hamburger.setAttribute('aria-expanded', String(open));
 });
+overlay?.addEventListener('click', closeSidebar);
+sidebar?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeSidebar));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
 
 initScrollReveal();
