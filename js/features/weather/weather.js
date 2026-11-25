@@ -10,7 +10,7 @@ export function renderWeather() {
     <div class="card">
       <h3>Prakiraan untuk lokasi lahan</h3>
       <div class="toolbar" style="margin-top:16px">
-        <input id="adm4-input" placeholder="Contoh: 35.07.14.2001" style="flex:1" value="35.07.14.2001">
+        <input id="adm4-input" placeholder="Contoh: 35.07.14.2001" style="flex:1" value="35.10.01.0022">
         <button class="btn" id="bmkg-fetch-btn" type="button">Ambil Prakiraan</button>
       </div>
       <div id="weather-result" style="margin-top:16px"></div>
@@ -27,19 +27,25 @@ export function bindWeather() {
     const output = document.getElementById('weather-result');
     
     if (!code) { 
-      output.innerHTML = '<p style="color:red">Masukkan kode ADM4 valid.</p>'; 
+      output.innerHTML = '<p style="color:red">✗ Masukkan kode ADM4 valid.</p>'; 
       return; 
     }
     
-    output.innerHTML = '<p>Mengambil data BMKG…</p>';
+    output.innerHTML = '<p>⏳ Mengambil data BMKG…</p>';
     try {
       const data = await fetchBmkg(code);
+      
+      if (data.error) {
+        output.innerHTML = `<p style="color:red">✗ BMKG: ${data.error}</p>`;
+        return;
+      }
+      
       output.innerHTML = `<span class="status">✓ DATA BMKG</span>
         <pre style="white-space:pre-wrap;max-height:300px;overflow:auto;margin-top:10px;font-size:0.8rem">${
           JSON.stringify(data?.data?.[0] ?? data, null, 2).slice(0, 3000)
         }</pre>`;
     } catch (err) {
-      output.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
+      output.innerHTML = `<p style="color:red">✗ Error: ${err.message}</p>`;
     }
   });
 }
