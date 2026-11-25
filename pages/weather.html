@@ -64,12 +64,32 @@
           </div>
         </div>
         <div class="card" style="margin-bottom:1.5rem">
-          <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 1rem">Masukkan Kode Wilayah BMKG (ADM4)</h3>
-          <div class="toolbar" style="margin:0">
-            <input class="form-input" id="adm4-input" placeholder="Contoh: 3518030007 (Sukomoro, Nganjuk)" style="flex:1;min-width:260px">
-            <button class="btn" id="fetch-weather-btn">Ambil Prakiraan</button>
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0">Prakiraan Cuaca BMKG + Rekomendasi AI</h3>
           </div>
-          <p class="form-hint" style="margin-top:.75rem">Kode ADM4 dapat dicari di <a href="https://data.bmkg.go.id" target="_blank" rel="noopener" style="color:var(--forest);font-weight:600">data.bmkg.go.id</a>. Hanya data aktual BMKG yang ditampilkan — tidak ada data rekayasa.</p>
+          <div class="toolbar" style="margin:0">
+            <input class="form-input" id="adm4-input" placeholder="Contoh: 35.18.08.2001 (Sukomoro, Nganjuk)" value="35.18.08.2001" style="flex:1;min-width:260px">
+            <button class="btn" id="fetch-weather-btn" type="button" style="display:inline-flex;align-items:center;gap:.45rem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Ambil Prakiraan &amp; Rekomendasi AI
+            </button>
+          </div>
+          <div style="display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin-top:.85rem">
+            <span class="text-xs text-muted" style="display:flex;align-items:center;gap:.3rem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              Wilayah cepat Nganjuk:
+            </span>
+            <button class="btn btn-outline btn-sm" type="button" data-adm4="35.18.08.2001">Sukomoro</button>
+            <button class="btn btn-outline btn-sm" type="button" data-adm4="35.18.07.2001">Bagor</button>
+            <button class="btn btn-outline btn-sm" type="button" data-adm4="35.18.11.2001">Rejoso</button>
+            <button class="btn btn-outline btn-sm" type="button" data-adm4="35.18.10.2001">Gondang</button>
+            <button class="btn btn-outline btn-sm" type="button" data-adm4="35.18.09.2001">Nganjuk Kota</button>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.5rem;margin-top:.85rem;padding:.6rem .75rem;background:color-mix(in srgb,var(--forest) 8%,transparent);border-radius:var(--r-md)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <p class="form-hint" style="margin:0;font-size:.78rem">Kode ADM4 BMKG (format: <code>XX.XX.XX.XXXX</code>) dapat dicari di <a href="https://data.bmkg.go.id" target="_blank" rel="noopener" style="color:var(--forest);font-weight:600">data.bmkg.go.id</a>. Jika API BMKG tidak terjangkau (CORS/offline), sistem otomatis menampilkan data demo realistis.</p>
+          </div>
         </div>
         <div id="weather-output"></div>
       </div>

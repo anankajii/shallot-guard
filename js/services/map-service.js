@@ -5,11 +5,11 @@ export function initLeafletMap(containerId, center = [-7.552, 111.898], zoom = 1
 
   const satellite = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    { attribution: 'Tiles © Esri', maxZoom: 19 }
+    { attribution: 'Tiles © Esri', maxNativeZoom: 17, maxZoom: 18, detectRetina: true }
   );
   const osm = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    { attribution: '© OpenStreetMap contributors', maxZoom: 19 }
+    { attribution: '© OpenStreetMap contributors', maxNativeZoom: 19, maxZoom: 19, detectRetina: true }
   );
 
   satellite.addTo(map);

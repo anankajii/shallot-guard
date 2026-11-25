@@ -55,7 +55,7 @@ function initProMapping() {
     }
 
     const center = [selectedFarm.lat ?? -7.552, selectedFarm.lng ?? 111.898];
-    const map = initLeafletMap('farm-map', center, 17);
+    const map = initLeafletMap('farm-map', center, 16);
     if (!map) return;
 
     farms.forEach(f => addMarker(map, f.lat ?? -7.552, f.lng ?? 111.898, `<b>${escHtml(f.name)}</b><br>${escHtml(f.location)}`));
@@ -191,7 +191,7 @@ function initProMapping() {
       const found = getData().farms.find(f => f.id === farmSelect.value);
       if (!found) return;
       selectedFarm = found;
-      map.setView([found.lat ?? -7.552, found.lng ?? 111.898], 17);
+      map.setView([found.lat ?? -7.552, found.lng ?? 111.898], 16);
       if (found.polygon?.length) {
         setPolygon(found.polygon.map(([lat, lng]) => ({ lat, lng })), true);
       } else {

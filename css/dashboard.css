@@ -55,7 +55,7 @@
 .dashboard-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--sp-6); }
 .widget { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: var(--sp-6); }
 .widget-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-5); }
-.widget-title  { font-size: 0.9375rem; font-weight: 700; color: var(--forest); }
+.widget-title  { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.9375rem; font-weight: 700; color: var(--forest); }
 
 /* ── Risk indicator ── */
 .risk-bar { height: 8px; background: var(--surface-high); border-radius: var(--r-pill); overflow: hidden; margin: var(--sp-2) 0; }
