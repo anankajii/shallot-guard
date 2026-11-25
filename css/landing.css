@@ -1,8 +1,7 @@
 /* ── Landing layout ── */
 .site-header {
   position: fixed; inset-x: 0; top: 0; z-index: 100;
-  background: rgba(251,249,243,0.93); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
+  background: #FFF7FA; border-bottom: 1px solid #E6DDE6;
   transition: border-color var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
   height: var(--topbar-h);
 }
@@ -13,7 +12,7 @@
 .brand-logo .brand-name { font-size: 1.0625rem; font-weight: 700; color: var(--forest); letter-spacing: 0.02em; }
 .brand-logo .brand-sub  { font-size: 0.6875rem; color: var(--soil); text-transform: uppercase; letter-spacing: 0.08em; }
 .site-nav { display: flex; align-items: center; gap: var(--sp-1); }
-.site-nav a { padding: 7px 13px; border-radius: var(--r-md); font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: background var(--t-fast), color var(--t-fast); }
+.site-nav a { padding: 7px 13px; border-radius: var(--r-md); font-size: 0.9rem; font-weight: 500; color: #3B1829; transition: background var(--t-fast), color var(--t-fast); }
 .site-nav a:hover, .site-nav a.active { background: var(--sage); color: var(--forest); font-weight: 600; }
 .nav-actions { display: flex; align-items: center; gap: var(--sp-3); }
 /* .hamburger base — landing uses #mobile-menu-btn handled inline in header.html */
