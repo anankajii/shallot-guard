@@ -42,7 +42,7 @@ export function renderSidebar(isAdmin = false) {
         </a>`).join('')}
       <small>Akun</small>
       <a href="#/app/profile">◯ ${user?.name ?? ''}</a>
-      <a href="#" id="logout-btn">↪ Keluar</a>
+      <a href="#" id="logout-btn">> Keluar</a>
     </aside>`;
 }
 
