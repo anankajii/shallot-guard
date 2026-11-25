@@ -3,7 +3,7 @@ const BMKG_BASE = 'https://api.bmkg.go.id/publik/prakiraan-cuaca';
 const CACHE_KEY = 'sg-weather-cache';
 const CACHE_TTL = 3 * 60 * 60 * 1000; // 3 hours
 
-export async function fetchWeather(adm4Code) {
+export async function fetchBmkg(adm4Code) {
   if (!adm4Code) throw new Error('Kode ADM4 diperlukan.');
 
   // Check cache
