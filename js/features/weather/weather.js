@@ -18,34 +18,46 @@ export function renderWeather() {
 }
 
 export function bindWeather() {
-  const btn = document.getElementById('bmkg-fetch-btn');
-  if (!btn) { console.error('Button not found'); return; }
-  
-  btn.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const code = document.getElementById('adm4-input')?.value?.trim();
-    const output = document.getElementById('weather-result');
-    
-    if (!code) { 
-      output.innerHTML = '<p style="color:red">✗ Masukkan kode ADM4 valid.</p>'; 
-      return; 
+  // Longer delay to ensure DOM is ready
+  setTimeout(() => {
+    const btn = document.getElementById('bmkg-fetch-btn');
+    if (!btn) {
+      console.error('[weather] Button not found after 100ms delay');
+      return;
     }
     
-    output.innerHTML = '<p>⏳ Mengambil data BMKG…</p>';
-    try {
-      const data = await fetchBmkg(code);
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       
-      if (data.error) {
-        output.innerHTML = `<p style="color:red">✗ BMKG: ${data.error}</p>`;
+      const code = document.getElementById('adm4-input')?.value?.trim();
+      const output = document.getElementById('weather-result');
+      
+      console.log('[weather] Button clicked, code:', code);
+      
+      if (!code) {
+        output.innerHTML = '<p style="color:red">✗ Masukkan kode ADM4 valid.</p>';
         return;
       }
       
-      output.innerHTML = `<span class="status">✓ DATA BMKG</span>
-        <pre style="white-space:pre-wrap;max-height:300px;overflow:auto;margin-top:10px;font-size:0.8rem">${
-          JSON.stringify(data?.data?.[0] ?? data, null, 2).slice(0, 3000)
-        }</pre>`;
-    } catch (err) {
-      output.innerHTML = `<p style="color:red">✗ Error: ${err.message}</p>`;
-    }
-  });
+      output.innerHTML = '<p>⏳ Mengambil data BMKG…</p>';
+      try {
+        const data = await fetchBmkg(code);
+        console.log('[weather] Data received:', data);
+        
+        if (data.error) {
+          output.innerHTML = `<p style="color:red">✗ BMKG: ${data.error}</p>`;
+          return;
+        }
+        
+        output.innerHTML = `<span class="status">✓ DATA BMKG</span>
+          <pre style="white-space:pre-wrap;max-height:300px;overflow:auto;margin-top:10px;font-size:0.8rem">${
+            JSON.stringify(data?.data?.[0] ?? data, null, 2).slice(0, 3000)
+          }</pre>`;
+      } catch (err) {
+        console.error('[weather] Error:', err);
+        output.innerHTML = `<p style="color:red">✗ Error: ${err.message}</p>`;
+      }
+    });
+  }, 100);
 }
