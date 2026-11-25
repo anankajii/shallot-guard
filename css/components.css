@@ -41,21 +41,36 @@ a { color: inherit; text-decoration: none; }
   transition: background var(--t-base) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-base) var(--ease);
   cursor: pointer; white-space: nowrap; text-decoration: none;
 }
-.btn:hover   { background: #7D2449; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:hover   { background: #245438; transform: translateY(-1px); box-shadow: var(--shadow-md); }
 .btn:active  { transform: translateY(0); }
 .btn:disabled{ opacity: 0.45; cursor: not-allowed; transform: none; }
 .btn-sm      { padding: 7px 14px; font-size: 0.8125rem; border-radius: var(--r-sm); }
 .btn-lg      { padding: 13px 28px; font-size: 1rem; }
 .btn-wide    { width: 100%; }
-.btn-outline { background: transparent; color: var(--forest); border: 1.5px solid var(--border); }
+.btn-outline {
+  background: transparent; color: var(--forest);
+  border: 1.5px solid var(--border);
+}
 .btn-outline:hover { background: var(--sage); border-color: var(--leaf); box-shadow: none; transform: none; }
-.btn-ghost   { background: transparent; color: var(--forest); }
+.btn-ghost   { background: transparent; color: var(--forest); border: none; }
 .btn-ghost:hover { background: var(--surface-mid); box-shadow: none; transform: none; }
-.btn-danger  { background: var(--onion); }
+/* Ghost inside dark sidebar — force light text */
+.app-sidebar .btn-ghost,
+.sidebar-footer .btn-ghost {
+  color: rgba(255,255,255,0.65);
+}
+.app-sidebar .btn-ghost:hover,
+.sidebar-footer .btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.btn-danger       { background: var(--onion); color: #fff; }
 .btn-danger:hover { background: #8f3e3c; }
-.btn-amber   { background: var(--amber); color: var(--ink); }
-.btn-amber:hover { background: #c08a30; }
-.btn-icon    { padding: 8px; width: 36px; height: 36px; border-radius: var(--r-md); }
+.btn-amber        { background: var(--amber); color: var(--ink); }
+.btn-amber:hover  { background: #c08a30; }
+.btn-success      { background: var(--leaf); color: #fff; }
+.btn-success:hover{ background: #3f6035; }
+.btn-icon         { padding: 8px; width: 36px; height: 36px; border-radius: var(--r-md); }
 
 /* ── Badge / status chip ── */
 .badge {
