@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Analisis Foto Tanaman — SHALLOTGUARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    @media (max-width: 768px) {
+      #photo-analysis-workspace { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="../pages/dashboard.html">
+        <div class="logo-mark">SG</div>
+        <div><div class="brand-name">SHALLOTGUARD</div><div class="brand-sub">Agritech Nganjuk</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Utama</div>
+        <a href="dashboard.html"       class="sidebar-link "><span class="icon">◉</span> Dashboard</a>
+        <a href="farms.html"           class="sidebar-link "><span class="icon"></span> Lahan Saya</a>
+        <a href="crop-cycles.html"     class="sidebar-link "><span class="icon"></span> Siklus Tanam</a>
+        <a href="journal.html"         class="sidebar-link "><span class="icon"></span> Jurnal</a>
+        <div class="sidebar-section">Analitik</div>
+        <a href="weather.html"         class="sidebar-link "><span class="icon"></span> Cuaca Cerdas</a>
+        <a href="risk-analysis.html"   class="sidebar-link "><span class="icon">△</span> Analisis Risiko</a>
+        <a href="photo-analysis.html"  class="sidebar-link active"><span class="icon">◈</span> Analisis Foto <span class="badge badge-amber" style="margin-left:auto;font-size:.625rem;padding:2px 6px">PRO</span></a>
+        <a href="recommendations.html" class="sidebar-link "><span class="icon"></span> Rekomendasi</a>
+        <div class="sidebar-section">Keuangan</div>
+        <a href="finance.html"         class="sidebar-link "><span class="icon">Rp</span> Keuangan</a>
+        <a href="mapping.html"         class="sidebar-link "><span class="icon"></span> Peta Lahan</a>
+        <div class="sidebar-section">Akun</div>
+        <a href="subscription.html"    class="sidebar-link "><span class="icon"></span> Paket</a>
+        <a href="profile.html"         class="sidebar-link "><span class="icon">◯</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user-info">
+          <div class="user-avatar" id="user-initial">?</div>
+          <div><div class="user-name" id="user-name">Memuat…</div><div class="user-plan" id="user-plan">—</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">> Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn" type="button" aria-label="Buka navigasi" aria-expanded="false">Menu</button>
+          <span class="topbar-title" style="display:flex;align-items:center;gap:.5rem">
+            Analisis Foto Tanaman
+            <span class="badge badge-amber" style="font-size:.6875rem">PREMIUM</span>
+          </span>
+        </div>
+        <div class="topbar-actions">
+          <span class="topbar-user"><span id="topbar-user-name">—</span></span>
+        </div>
+      </header>
+
+      <div class="app-content page-enter" id="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title" style="display:flex;align-items:center;gap:.6rem">
+              <!-- Lucide: camera (MIT) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+              Analisis Foto Tanaman
+            </h1>
+            <p class="page-subtitle">Pemindaian visual daun atau umbi bawang merah untuk mendeteksi indikasi gejala awal penyakit.</p>
+          </div>
+        </div>
+
+        <!-- Gate untuk pengguna Free -->
+        <div id="premium-gate" class="card" style="display:none;max-width:640px;border-color:var(--amber);background:linear-gradient(135deg,#fff 0%,var(--surface-low) 100%)">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(212,154,58,.15);color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <!-- Lucide: crown (MIT) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+            </div>
+            <div>
+              <span class="badge badge-amber" style="margin-bottom:.5rem">Fitur Khusus Premium</span>
+              <h3 style="font-size:1.125rem;font-weight:700;color:var(--forest);margin:.25rem 0 .5rem">Buka Analisis Foto Tanaman</h3>
+              <p class="text-sm text-muted" style="margin:0 0 1rem;line-height:1.6">
+                Fitur pemindaian foto daun dan umbi tersedia eksklusif untuk akun <strong>Premium</strong>. Unggah foto gejala dari lahan, lihat analisis spektrum warna visual, dan simpan hasilnya ke Jurnal Tanam.
+              </p>
+              <a href="subscription.html" class="btn">
+                <!-- Lucide: sparkles (MIT) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                Lihat Paket Premium
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workspace untuk pengguna Premium -->
+        <div id="photo-analysis-workspace" style="display:none;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start">
+          <div class="card">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 1rem;display:flex;align-items:center;gap:.45rem">
+              <!-- Lucide: upload (MIT) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+              Unggah Foto Tanaman
+            </h3>
+
+            <label id="photo-dropzone" for="photo-file-input" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1.5rem 1rem;border:2px dashed var(--border);border-radius:var(--r-lg);background:var(--surface-low);cursor:pointer;text-align:center;margin-bottom:.85rem;transition:all .15s ease">
+              <!-- Lucide: image-plus (MIT) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg>
+              <span class="text-sm font-semibold" style="color:var(--forest)">Seret foto ke sini atau pilih aksi di bawah</span>
+              <span class="text-xs text-muted">Format JPG, PNG, WebP · Maks. resolusi kamera ponsel</span>
+              <input id="photo-file-input" type="file" accept="image/*" style="display:none">
+              <input id="camera-file-input" type="file" accept="image/*" capture="environment" style="display:none">
+            </label>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1rem">
+              <button class="btn btn-outline" id="upload-photo-btn" type="button">
+                <!-- Lucide: upload (MIT) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                Upload Foto
+              </button>
+              <button class="btn btn-outline" id="open-camera-btn" type="button">
+                <!-- Lucide: camera (MIT) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                Buka Kamera
+              </button>
+            </div>
+
+            <!-- Panel Kamera Live (WebRTC) -->
+            <div id="camera-panel" style="display:none;margin-bottom:1rem;padding:.75rem;border:1px solid var(--forest);border-radius:var(--r-md);background:#101c15">
+              <video id="camera-video" autoplay playsinline style="width:100%;max-height:240px;border-radius:var(--r-sm);background:#000;object-fit:cover"></video>
+              <div style="display:flex;gap:.5rem;margin-top:.65rem;justify-content:flex-end">
+                <button class="btn btn-ghost btn-sm" id="close-camera-btn" type="button" style="color:#fff">Tutup</button>
+                <button class="btn btn-sm" id="capture-photo-btn" type="button">
+                  <!-- Lucide: aperture (MIT) -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></svg>
+                  Ambil Foto
+                </button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:1rem">
+              <div class="text-xs text-muted" style="margin-bottom:.4rem">Atau uji cepat dengan contoh foto demo:</div>
+              <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+                <button class="btn btn-outline btn-sm" type="button" data-demo-sample="healthy">Daun Sehat</button>
+                <button class="btn btn-outline btn-sm" type="button" data-demo-sample="purple_blotch">Bercak Ungu</button>
+                <button class="btn btn-outline btn-sm" type="button" data-demo-sample="moler">Gejala Moler</button>
+              </div>
+            </div>
+
+            <div id="photo-preview-wrap" style="display:none;margin-bottom:1rem">
+              <img id="photo-preview-img" alt="Pratinjau foto tanaman" style="width:100%;max-height:220px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border)">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="photo-part">Bagian Tanaman</label>
+              <select class="form-select" id="photo-part">
+                <option value="daun">Daun / Tajuk</option>
+                <option value="umbi">Umbi Bawang</option>
+                <option value="akar">Pangkal Batang / Akar</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="photo-cycle">Siklus Tanam (Opsional)</label>
+              <select class="form-select" id="photo-cycle"></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="photo-note">Catatan Gejala Tambahan</label>
+              <input class="form-input" id="photo-note" type="text" placeholder="cth: bercak ungu di ujung daun setelah hujan">
+            </div>
+
+            <div class="card card-sage" style="margin-bottom:1.25rem;padding:.875rem">
+              <p class="text-xs" style="color:var(--forest);margin:0">
+                <strong>SIMULASI pemindaian visual.</strong> Tidak menjalankan model AI/ML; hasil berupa indikasi awal berdasarkan spektrum warna kanvas, bukan diagnosis mutlak.
+              </p>
+            </div>
+
+            <button class="btn btn-wide" id="run-photo-btn" type="button" disabled>Jalankan Analisis Foto</button>
+          </div>
+
+          <div>
+            <div id="photo-result">
+              <div class="card card-sage" style="margin-bottom:1rem">
+                <h4 style="font-size:.875rem;font-weight:700;color:var(--forest);margin:0 0 .5rem">Cara Kerja Analisis Foto</h4>
+                <p class="text-xs text-muted" style="margin:0;line-height:1.6">
+                  Unggah foto daun atau umbi bawang merah dengan pencahayaan cukup. Sistem akan memetakan rasio warna hijau sehat, klorosis (kuning), dan nekrosis (cokelat/ungu) sebagai indikasi awal.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 style="font-size:.875rem;font-weight:700;color:var(--forest);margin:0 0 .75rem">Riwayat Analisis Foto</h4>
+              <div id="photo-history"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav-bar">
+    <div class="nav-items">
+      <a href="dashboard.html"      class=""><span class="icon">◉</span><span>Dasbor</span></a>
+      <a href="farms.html"          class=""><span class="icon"></span><span>Lahan</span></a>
+      <a href="weather.html"        class=""><span class="icon"></span><span>Cuaca</span></a>
+      <a href="photo-analysis.html" class="active"><span class="icon">◈</span><span>Foto</span></a>
+      <a href="finance.html"        class=""><span class="icon">Rp</span><span>Keuangan</span></a>
+    </div>
+  </nav>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/pages/photo-analysis-page.js"></script>
+</body>
+</html>

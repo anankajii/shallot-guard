@@ -29,6 +29,41 @@ function ensureDefaults(state) {
     { id:'t4', farmId:'f1', cycleId:'c1', date:'2026-12-22', type:'Pemasukan',   category:'Penjualan panen', amount:7800000, note:'Proyeksi panen demo' },
   ];
   state.risks    ??= [];
+  state.photoAnalyses ??= [
+    {
+      id: 'pa1',
+      date: '2026-11-22',
+      cycleId: 'c1',
+      part: 'daun',
+      indication: 'Indikasi Bercak Ungu / Trotol (Alternaria porri)',
+      severity: 'Sedang',
+      score: 74,
+      metrics: { healthyPct: 52, yellowPct: 19, necroticPct: 26 },
+      explanation: 'Terdeteksi rasio piksel gelap/kemerahan-cokelat (26%) yang mengindikasikan potensi bercak nekrotik pada daun (Data Dummy).',
+      recommendations: [
+        'Pangkas bagian daun yang berbercak berat agar spora tidak menyebar.',
+        'Hindari penyiraman overhead pada sore hari.',
+        'Konsultasikan dengan PPL setempat sebelum aplikasi fungisida.',
+      ],
+      thumbnail: '',
+    },
+    {
+      id: 'pa2',
+      date: '2026-11-19',
+      cycleId: 'c1',
+      part: 'daun',
+      indication: 'Kondisi Visual Relatif Sehat',
+      severity: 'Rendah',
+      score: 18,
+      metrics: { healthyPct: 82, yellowPct: 10, necroticPct: 5 },
+      explanation: 'Dominasi spektrum hijau (82%) pada sampel foto menunjukkan jaringan daun dalam kondisi baik (Data Dummy).',
+      recommendations: [
+        'Pertahankan jadwal pengamatan rutin setiap 2–3 hari.',
+        'Jaga kebersihan gulma di sekitar bedengan.',
+      ],
+      thumbnail: '',
+    },
+  ];
   state.alerts   ??= [{ id:'a1', type:'Kelembapan tinggi', location:'Sukomoro', status:'Terverifikasi', date:'2026-11-20' }];
   state.audit    ??= [];
   state.settings ??= {};
