@@ -5,18 +5,15 @@ import { createDemoSampleDataUrl, extractColorMetrics, analyzePlantPhoto } from 
 import { toast } from '../utils/notifications.js';
 import { escHtml } from '../utils/helpers.js';
 
+const FREE_PHOTO_LIMIT = 2;
+
 if (requireFarmer()) {
-  const gateEl = document.getElementById('premium-gate');
+  const noticeEl = document.getElementById('free-plan-notice');
   const workspaceEl = document.getElementById('photo-analysis-workspace');
 
-  if (!isPremium()) {
-    gateEl.style.display = 'block';
-    workspaceEl.style.display = 'none';
-  } else {
-    gateEl.style.display = 'none';
-    workspaceEl.style.display = 'grid';
-    initPhotoWorkspace();
-  }
+  if (noticeEl) noticeEl.style.display = isPremium() ? 'none' : 'block';
+  if (workspaceEl) workspaceEl.style.display = 'grid';
+  initPhotoWorkspace();
 }
 
 function initPhotoWorkspace() {
@@ -124,9 +121,22 @@ function initPhotoWorkspace() {
     handleFile(e.dataTransfer.files?.[0]);
   });
 
+  function updateQuotaBadge() {
+    const quotaEl = document.getElementById('free-photo-quota');
+    if (quotaEl) {
+      const count = (getData().photoAnalyses || []).length;
+      quotaEl.textContent = `${count}/${FREE_PHOTO_LIMIT}`;
+    }
+  }
+
   function runAnalysis() {
     if (!currentImageSrc || !previewImg.complete) {
       toast('Unggah foto tanaman atau pilih contoh demo terlebih dahulu.', 'error');
+      return;
+    }
+    const currentItems = getData().photoAnalyses || [];
+    if (!isPremium() && currentItems.length >= FREE_PHOTO_LIMIT) {
+      toast(`Batas Paket Free (${FREE_PHOTO_LIMIT} riwayat analisis) tercapai. Hapus riwayat lama atau upgrade ke Premium.`, 'error');
       return;
     }
     const metrics = extractColorMetrics(previewImg);
@@ -211,12 +221,16 @@ function initPhotoWorkspace() {
         </div>` : ''}
 
         <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-          <button class="btn btn-outline btn-sm" id="save-to-journal-btn" type="button">Catat ke Jurnal Tanam</button>
+          <button class="btn btn-outline btn-sm" id="save-to-journal-btn" type="button">${isPremium() ? 'Catat ke Jurnal Tanam' : 'Catat ke Jurnal Tanam (Premium)'}</button>
         </div>
       </div>
     `;
 
     document.getElementById('save-to-journal-btn')?.addEventListener('click', () => {
+      if (!isPremium()) {
+        toast('Simpan otomatis ke Jurnal Tanam tersedia di Paket Premium.', 'info');
+        return;
+      }
       if (!lastResult) return;
       const d = getData();
       const targetCycle = cycleSelect.value || d.cycles?.[0]?.id || 'c1';
@@ -232,6 +246,7 @@ function initPhotoWorkspace() {
   }
 
   function renderHistory() {
+    updateQuotaBadge();
     const items = getData().photoAnalyses || [];
     if (!items.length) {
       historyEl.innerHTML = '<p class="text-sm text-muted" style="margin:0">Belum ada riwayat analisis foto.</p>';

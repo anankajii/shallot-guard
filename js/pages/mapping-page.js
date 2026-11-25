@@ -6,17 +6,12 @@ import { toast } from '../utils/notifications.js';
 import { escHtml } from '../utils/helpers.js';
 
 if (requireFarmer()) {
-  const gateEl = document.getElementById('premium-gate');
+  const noticeEl = document.getElementById('free-plan-notice');
   const workspaceEl = document.getElementById('mapping-workspace');
 
-  if (!isPremium()) {
-    gateEl.style.display = 'block';
-    workspaceEl.style.display = 'none';
-  } else {
-    gateEl.style.display = 'none';
-    workspaceEl.style.display = 'block';
-    initProMapping();
-  }
+  if (noticeEl) noticeEl.style.display = isPremium() ? 'none' : 'block';
+  if (workspaceEl) workspaceEl.style.display = 'block';
+  initProMapping();
 }
 
 function initProMapping() {
@@ -42,8 +37,9 @@ function initProMapping() {
     const listEl = document.getElementById('map-farm-list');
 
     if (farmSelect) {
+      const prem = isPremium();
       farmSelect.innerHTML = farms.length
-        ? farms.map(f => `<option value="${escHtml(f.id)}">${escHtml(f.name)} — ${escHtml(f.location)}</option>`).join('')
+        ? farms.map((f, idx) => `<option value="${escHtml(f.id)}" ${!prem && idx > 0 ? 'disabled' : ''}>${escHtml(f.name)} — ${escHtml(f.location)}${!prem && idx > 0 ? ' (Premium)' : ''}</option>`).join('')
         : '<option value="f1">Lahan Sukomoro Demo</option>';
     }
 
@@ -161,11 +157,15 @@ function initProMapping() {
             </ul>
           </div>
 
-          <button class="btn btn-outline btn-sm btn-wide" id="save-map-journal-btn" type="button">Catat Analisis Poligon ke Jurnal</button>
+          <button class="btn btn-outline btn-sm btn-wide" id="save-map-journal-btn" type="button">${isPremium() ? 'Catat Analisis Poligon ke Jurnal' : 'Catat ke Jurnal (Premium)'}</button>
         </div>
       `;
 
       document.getElementById('save-map-journal-btn')?.addEventListener('click', () => {
+        if (!isPremium()) {
+          toast('Catat analisis poligon ke Jurnal tersedia di Paket Premium.', 'info');
+          return;
+        }
         if (!lastSummary) return;
         const d = getData();
         const cycleId = d.cycles?.[0]?.id || 'c1';
@@ -231,6 +231,10 @@ function initProMapping() {
     analyzeBtn?.addEventListener('click', runAiPolygonAnalysis);
 
     saveBtn?.addEventListener('click', () => {
+      if (!isPremium()) {
+        toast('Simpan Poligon permanen tersedia di Paket Premium.', 'info');
+        return;
+      }
       if (!currentLatLngs?.length) return;
       const areaM2 = calcPolygonAreaM2(currentLatLngs);
       updateItem('farms', selectedFarm.id, {
