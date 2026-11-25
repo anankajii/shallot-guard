@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pengaturan — SHALLOTGUARD Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="dashboard.html">
+        <div class="logo-mark" style="background:rgba(255,255,255,.15)">A</div>
+        <div><div class="brand-name">Admin Panel</div><div class="brand-sub">SHALLOTGUARD</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Admin</div>
+        <a href="dashboard.html"       class="sidebar-link"><span class="icon">◉</span> Dashboard</a>
+        <a href="users.html"           class="sidebar-link"><span class="icon">👥</span> Pengguna</a>
+        <a href="subscriptions.html"   class="sidebar-link"><span class="icon">★</span> Langganan</a>
+        <a href="farms.html"           class="sidebar-link"><span class="icon">🌾</span> Lahan</a>
+        <a href="risk-monitoring.html" class="sidebar-link"><span class="icon">△</span> Monitoring Risiko</a>
+        <a href="settings.html"        class="sidebar-link active"><span class="icon">⚙</span> Pengaturan</a>
+        <a href="audit-logs.html"      class="sidebar-link"><span class="icon">📋</span> Audit Logs</a>
+        <div class="sidebar-section">Navigasi</div>
+        <a href="../pages/dashboard.html" class="sidebar-link"><span class="icon">↗</span> App Petani</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="user-initial">A</div>
+          <div><div class="user-name" id="user-name">Admin</div><div class="user-plan">Administrator</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="app-main">
+      <header class="app-topbar admin-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn" type="button" aria-label="Buka navigasi" aria-expanded="false">Menu</button>
+          <span class="topbar-title">Pengaturan Platform</span>
+        </div>
+        <span class="badge badge-admin">ADMIN</span>
+      </header>
+      <div class="app-content page-enter">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Pengaturan Platform</h1>
+            <p class="page-subtitle">Konfigurasi demo — perubahan disimpan lokal dan tidak mempengaruhi produksi.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px">
+
+          <!-- General settings -->
+          <div class="card">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 1.25rem">Pengaturan Umum</h3>
+            <form id="settings-form">
+              <div class="form-group">
+                <label class="form-label">Nama Platform</label>
+                <input class="form-input" name="platform" value="SHALLOTGUARD">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Kontak</label>
+                <input class="form-input" name="contact" value="admin@shallotguard.demo">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sumber Data Cuaca</label>
+                <input class="form-input" value="BMKG API — api.bmkg.go.id" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mode Aplikasi</label>
+                <input class="form-input" value="Demo / Prototype" disabled>
+              </div>
+              <button type="submit" class="btn">Simpan Pengaturan</button>
+            </form>
+          </div>
+
+          <!-- Firebase status -->
+          <div class="card">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest);margin:0 0 1.25rem">Status Integrasi</h3>
+            <div style="display:flex;flex-direction:column;gap:.875rem">
+              <div class="list-item">
+                <div class="list-item-icon">🔥</div>
+                <div style="flex:1">
+                  <div class="text-sm font-semibold">Firebase Authentication</div>
+                  <div class="text-xs text-muted">Belum dikonfigurasi — mode demo aktif</div>
+                </div>
+                <span class="badge badge-warning">Demo</span>
+              </div>
+              <div class="list-item">
+                <div class="list-item-icon">🗄</div>
+                <div style="flex:1">
+                  <div class="text-sm font-semibold">Cloud Firestore</div>
+                  <div class="text-xs text-muted">Menggunakan localStorage sebagai fallback</div>
+                </div>
+                <span class="badge badge-warning">Demo</span>
+              </div>
+              <div class="list-item">
+                <div class="list-item-icon">🌤</div>
+                <div style="flex:1">
+                  <div class="text-sm font-semibold">BMKG API</div>
+                  <div class="text-xs text-muted">Aktif — membutuhkan kode ADM4 valid</div>
+                </div>
+                <span class="badge badge-success">Aktif</span>
+              </div>
+              <div class="list-item">
+                <div class="list-item-icon">🗺</div>
+                <div style="flex:1">
+                  <div class="text-sm font-semibold">Leaflet / OpenStreetMap</div>
+                  <div class="text-xs text-muted">CDN — aktif untuk pengguna Premium</div>
+                </div>
+                <span class="badge badge-success">Aktif</span>
+              </div>
+            </div>
+            <div class="card card-sage" style="margin-top:1rem;padding:.875rem">
+              <p class="text-xs" style="color:var(--forest);margin:0">Untuk mengaktifkan Firebase, isi kredensial di <code>js/config/firebase-config.js</code> sesuai panduan di README.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/admin-shell.js"></script>
+  <script type="module">
+    import { requireAdmin } from '../js/utils/access-control.js';
+    import { getData, saveData, logAudit } from '../js/services/firestore-service.js';
+    import { toast } from '../js/utils/notifications.js';
+
+    if (requireAdmin()) {
+      const s = getData();
+      if (s.settings?.platform) {
+        document.querySelector('[name="platform"]').value = s.settings.platform;
+      }
+      if (s.settings?.contact) {
+        document.querySelector('[name="contact"]').value = s.settings.contact;
+      }
+
+      document.getElementById('settings-form')?.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target));
+        const st = getData();
+        st.settings = { ...st.settings, ...data };
+        saveData(st);
+        logAudit('Admin menyimpan pengaturan platform', 'admin@shallotguard.demo');
+        toast('Pengaturan disimpan (demo — tidak persisten ke Firebase).', 'success');
+      });
+    }
+  </script>
+</body>
+</html>

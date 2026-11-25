@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Monitoring Risiko — SHALLOTGUARD Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="sidebar-brand" href="dashboard.html">
+        <div class="logo-mark" style="background:rgba(255,255,255,.15)">A</div>
+        <div><div class="brand-name">Admin Panel</div><div class="brand-sub">SHALLOTGUARD</div></div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Admin</div>
+        <a href="dashboard.html"       class="sidebar-link"><span class="icon">◉</span> Dashboard</a>
+        <a href="users.html"           class="sidebar-link"><span class="icon">👥</span> Pengguna</a>
+        <a href="subscriptions.html"   class="sidebar-link"><span class="icon">★</span> Langganan</a>
+        <a href="farms.html"           class="sidebar-link"><span class="icon">🌾</span> Lahan</a>
+        <a href="risk-monitoring.html" class="sidebar-link active"><span class="icon">△</span> Monitoring Risiko</a>
+        <a href="settings.html"        class="sidebar-link"><span class="icon">⚙</span> Pengaturan</a>
+        <a href="audit-logs.html"      class="sidebar-link"><span class="icon">📋</span> Audit Logs</a>
+        <div class="sidebar-section">Navigasi</div>
+        <a href="../pages/dashboard.html" class="sidebar-link"><span class="icon">↗</span> App Petani</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="user-initial">A</div>
+          <div><div class="user-name" id="user-name">Admin</div><div class="user-plan">Administrator</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">↪ Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="app-main">
+      <header class="app-topbar admin-topbar">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn" type="button" aria-label="Buka navigasi" aria-expanded="false">Menu</button>
+          <span class="topbar-title">Monitoring Risiko</span>
+        </div>
+        <span class="badge badge-admin">ADMIN</span>
+      </header>
+      <div class="app-content page-enter">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Monitoring Risiko</h1>
+            <p class="page-subtitle">Pantau laporan risiko dan peringatan dari seluruh lahan terdaftar.</p>
+          </div>
+          <span class="badge badge-warning">DEMO DATA</span>
+        </div>
+
+        <div class="stats-grid" style="margin-bottom:2rem">
+          <div class="stat-card"><div class="stat-icon">🔔</div><div class="stat-label">Total Laporan</div><div class="stat-value" id="risk-total">—</div></div>
+          <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-label">Terverifikasi</div><div class="stat-value" id="risk-verified">—</div></div>
+          <div class="stat-card"><div class="stat-icon">⏳</div><div class="stat-label">Menunggu</div><div class="stat-value" id="risk-pending">—</div></div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Jenis Gangguan</th><th>Lokasi</th><th>Tanggal</th><th>Status</th></tr>
+              </thead>
+              <tbody id="risk-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1.5rem;background:var(--surface-low)">
+          <h4 style="font-size:.875rem;font-weight:700;color:var(--forest);margin:0 0 .75rem">Panduan Verifikasi</h4>
+          <p class="text-sm text-muted" style="margin:0">Laporan dengan status <strong>Belum diverifikasi</strong> perlu ditindaklanjuti oleh penyuluh lapangan. Konfirmasi melalui kunjungan atau komunikasi langsung dengan pelapor sebelum mengubah status.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="../js/admin-shell.js"></script>
+  <script type="module">
+    import { requireAdmin } from '../js/utils/access-control.js';
+    import { getData, saveData, logAudit } from '../js/services/firestore-service.js';
+    import { toast } from '../js/utils/notifications.js';
+    import { escHtml, formatDate } from '../js/utils/helpers.js';
+
+    if (requireAdmin()) {
+      function render() {
+        const { alerts } = getData();
+        const verified = alerts.filter(a => a.status === 'Terverifikasi').length;
+        const pending  = alerts.filter(a => a.status !== 'Terverifikasi').length;
+
+        document.getElementById('risk-total').textContent    = alerts.length;
+        document.getElementById('risk-verified').textContent = verified;
+        document.getElementById('risk-pending').textContent  = pending;
+
+        const tbody = document.getElementById('risk-tbody');
+        if (!alerts.length) {
+          tbody.innerHTML = `<tr><td colspan="4" class="text-muted text-sm" style="padding:2rem;text-align:center">Belum ada laporan risiko.</td></tr>`;
+          return;
+        }
+        tbody.innerHTML = alerts.map((a, i) => `
+          <tr>
+            <td style="font-weight:600">${escHtml(a.type)}</td>
+            <td class="text-sm text-muted">${escHtml(a.location)}</td>
+            <td class="text-sm text-muted">${escHtml(a.date)}</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:.75rem">
+                <span class="badge ${a.status === 'Terverifikasi' ? 'badge-success' : 'badge-warning'}">${escHtml(a.status)}</span>
+                ${a.status !== 'Terverifikasi' ? `<button class="btn btn-sm" style="padding:5px 12px;font-size:.8rem" onclick="verifyAlert(${i})">Verifikasi</button>` : ''}
+              </div>
+            </td>
+          </tr>`).join('');
+      }
+
+      window.verifyAlert = (i) => {
+        const s = getData();
+        s.alerts[i].status = 'Terverifikasi';
+        saveData(s);
+        logAudit(`Admin memverifikasi laporan risiko: ${s.alerts[i].type}`, 'admin@shallotguard.demo');
+        toast('Laporan berhasil diverifikasi.', 'success');
+        render();
+      };
+
+      render();
+    }
+  </script>
+</body>
+</html>
