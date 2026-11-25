@@ -17,16 +17,13 @@ const FARMER_MODULES = [
 ];
 
 const ADMIN_MODULES = [
-  ['dashboard',         'Dashboard'],
-  ['users',             'Pengguna'],
-  ['subscriptions',     'Langganan'],
-  ['farms',             'Lahan'],
-  ['crop-cycles',       'Siklus Tanam'],
-  ['risk-monitoring',   'Monitoring Risiko'],
-  ['content',           'Konten'],
-  ['reports',           'Laporan'],
-  ['settings',          'Pengaturan'],
-  ['audit-logs',        'Audit Logs'],
+  ['dashboard',       'Dashboard'],
+  ['users',           'Pengguna'],
+  ['subscriptions',   'Langganan'],
+  ['content',         'Konten'],
+  ['reports',         'Laporan'],
+  ['settings',        'Pengaturan'],
+  ['audit-logs',      'Audit Logs'],
 ];
 
 export function renderSidebar(isAdmin = false) {
