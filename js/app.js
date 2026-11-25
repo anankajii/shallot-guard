@@ -433,6 +433,7 @@ function renderAdminPage(id) {
     dashboard:    renderAdminDashboard,
     users:        renderUsers,
     subscriptions: renderAdminSubscriptions,
+    farms:        () => `<div class="page-title-row"><h1>Lahan Semua Petani</h1></div><div class="widget" style="padding:var(--sp-6)"><p>Daftar lahan: ${state.farms.length} total</p><table class="data-table" style="width:100%;border-collapse:collapse"><tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:var(--sp-3)">Nama</th><th style="text-align:left;padding:var(--sp-3)">Lokasi</th><th style="text-align:left;padding:var(--sp-3)">Luas (m²)</th><th style="text-align:left;padding:var(--sp-3)">Petani</th></tr>${state.farms.map(f => `<tr style="border-bottom:1px solid var(--border)"><td style="padding:var(--sp-3)">${f.name}</td><td style="padding:var(--sp-3)">${f.location}</td><td style="padding:var(--sp-3)">${f.area}</td><td style="padding:var(--sp-3)">${f.owner || 'Demo'}</td></tr>`).join('')}</table></div>`,
     'audit-logs': renderAuditLogs,
   };
 
