@@ -14,9 +14,10 @@
   .app-sidebar.open { transform: translateX(0); }
   .sidebar-overlay { z-index: 90; background: rgba(50,19,33,0.38); backdrop-filter: blur(2px); }
   .sidebar-overlay.show { display: block; }
-  .app-main { margin-left: 0 !important; padding-bottom: 70px; }
+  .app-main { margin-left: 0 !important; padding-bottom: 72px; }
   .mobile-nav-bar { display: block; }
-  .hamburger { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 8px 10px; font-size: 0.72rem; letter-spacing: .04em; }
+  .app-topbar .hamburger,
+  .hamburger { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; padding: 8px; font-size: 0.72rem; letter-spacing: .04em; flex-shrink: 0; }
   .site-nav { display: none; }
   .hero-stats { grid-template-columns: 1fr; }
   .hero-stat + .hero-stat { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: var(--sp-5); }

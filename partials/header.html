@@ -1,4 +1,4 @@
-<header id="site-header" style="position:fixed;inset-x:0;top:0;z-index:100;background:#FFF7FA;border-bottom:1px solid #E6DDE6;transition:border-color .2s,box-shadow .2s;height:68px">
+<header id="site-header" style="position:fixed;left:0;right:0;top:0;z-index:100;background:#FFF7FA;border-bottom:1px solid #E6DDE6;transition:border-color .2s,box-shadow .2s;height:68px">
   <style>
     @media (max-width: 1023px) {
       #landing-desktop-nav { display: none; }
@@ -9,9 +9,10 @@
       #mobile-menu-btn { display: flex; }
       #nav-login-btn { display: none; }
       #landing-desktop-nav { display: none; }
+      #nav-cta-btn { padding: 8px 12px !important; font-size: .78rem !important; white-space: nowrap; }
     }
   </style>
-  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(.75rem,2vw,1.5rem);height:100%;display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(.75rem,2vw,1.5rem);height:100%;display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:nowrap">
 
     <!-- Brand -->
     <a href="index.html" style="display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0">
@@ -39,7 +40,7 @@
         onmouseout="this.style.background=''">
         Masuk
       </a>
-      <a href="login.html"
+      <a id="nav-cta-btn" href="login.html"
         style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-size:.875rem;font-weight:700;background:#5A173F;color:#ffffff;text-decoration:none;transition:background .15s,transform .1s;box-shadow:0 2px 8px rgba(90,23,63,.2)"
         onmouseover="this.style.background='#7D2449';this.style.transform='translateY(-1px)'"
         onmouseout="this.style.background='#5A173F';this.style.transform=''">
@@ -61,15 +62,15 @@
 
   <!-- Mobile Drawer -->
   <div id="mobile-menu"
-    style="display:none;position:fixed;inset-x:0;top:68px;flex-direction:column;gap:4px;padding:1rem clamp(1rem,4vw,2.5rem) 1.25rem;border-top:1px solid #E6DDE6;background:#FFF7FA;z-index:99;max-height:calc(100vh-68px);overflow-y:auto">
+    style="display:none;position:fixed;left:0;right:0;top:68px;flex-direction:column;gap:4px;padding:1rem clamp(1rem,4vw,2.5rem) 1.25rem;border-top:1px solid #E6DDE6;background:#FFF7FA;z-index:99;max-height:calc(100vh - 68px);overflow-y:auto;box-shadow:0 8px 24px rgba(90,23,63,.1)">
     <a href="index.html#solusi"          style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Solusi</a>
     <a href="index.html#fitur"           style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Fitur</a>
     <a href="index.html#cara-kerja"      style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Cara Kerja</a>
     <a href="index.html#harga-dan-paket" style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Harga &amp; Paket</a>
     <a href="index.html#tentang-kami"    style="padding:11px 14px;border-radius:10px;font-size:.9375rem;font-weight:500;color:#202923;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Tentang Kami</a>
     <div style="display:flex;gap:.75rem;padding-top:.75rem;margin-top:.5rem;border-top:1px solid #E4E8E1">
-      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:600;color:#5A173F;border:1.5px solid #E4E8E1;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Masuk</a>
-      <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:700;background:#5A173F;color:#ffffff;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#7D2449'" onmouseout="this.style.background='#5A173F'">Daftar Gratis</a>
+      <a id="nav-cta-btn" href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:600;color:#5A173F;border:1.5px solid #E4E8E1;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#F0EEE8'" onmouseout="this.style.background=''">Masuk</a>
+      <a id="nav-cta-btn" href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.9rem;font-weight:700;background:#5A173F;color:#ffffff;text-decoration:none;transition:background .12s" onmouseover="this.style.background='#7D2449'" onmouseout="this.style.background='#5A173F'">Daftar Gratis</a>
     </div>
   </div>
 </header>
