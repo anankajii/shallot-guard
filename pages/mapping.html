@@ -3,44 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Peta Lahan — SHALLOTGUARD</title>
+  <title>Peta Lahan PRO — SHALLOTGUARD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
   <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .zone-callout {
+      background: rgba(255,255,255,0.95);
+      border: 1.5px solid #183b2b;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.22);
+    }
+    @media (max-width: 900px) {
+      #mapping-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
   <div class="app-shell">
     <!-- Sidebar -->
     <aside class="app-sidebar" id="app-sidebar">
       <a class="sidebar-brand" href="../pages/dashboard.html">
-        <div class="logo-mark">SG</div>
+        <div class="logo-mark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <div><div class="brand-name">SHALLOTGUARD</div><div class="brand-sub">Agritech Nganjuk</div></div>
       </a>
       <nav class="sidebar-nav">
         <div class="sidebar-section">Utama</div>
-        <a href="dashboard.html"    class="sidebar-link "><span class="icon">◉</span> Dashboard</a>
-        <a href="farms.html"        class="sidebar-link "><span class="icon"></span> Lahan Saya</a>
-        <a href="crop-cycles.html"  class="sidebar-link "><span class="icon"></span> Siklus Tanam</a>
-        <a href="journal.html"      class="sidebar-link "><span class="icon"></span> Jurnal</a>
+        <a href="dashboard.html"       class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span> Dashboard</a>
+        <a href="farms.html"           class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span> Lahan Saya</a>
+        <a href="crop-cycles.html"     class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M17 14h-6"/><path d="M13 18H7"/></svg></span> Siklus Tanam</a>
+        <a href="journal.html"         class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span> Jurnal</a>
         <div class="sidebar-section">Analitik</div>
-        <a href="weather.html"      class="sidebar-link "><span class="icon"></span> Cuaca Cerdas</a>
-        <a href="risk-analysis.html" class="sidebar-link "><span class="icon">△</span> Analisis Risiko</a>
-        <a href="photo-analysis.html" class="sidebar-link "><span class="icon">◈</span> Analisis Foto <span class="badge badge-amber" style="margin-left:auto;font-size:.625rem;padding:2px 6px">PRO</span></a>
-        <a href="recommendations.html" class="sidebar-link "><span class="icon"></span> Rekomendasi</a>
+        <a href="weather.html"         class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg></span> Cuaca Cerdas</a>
+        <a href="risk-analysis.html"   class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span> Analisis Risiko</a>
+        <a href="photo-analysis.html"  class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span> Analisis Foto <span class="badge badge-amber" style="margin-left:auto;font-size:.625rem;padding:2px 6px">PRO</span></a>
+        <a href="mapping.html"         class="sidebar-link active"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span> Peta Lahan <span class="badge badge-amber" style="margin-left:auto;font-size:.625rem;padding:2px 6px">PRO</span></a>
+        <a href="recommendations.html" class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span> Rekomendasi</a>
         <div class="sidebar-section">Keuangan</div>
-        <a href="finance.html"      class="sidebar-link "><span class="icon">Rp</span> Keuangan</a>
-        <a href="mapping.html"      class="sidebar-link active"><span class="icon"></span> Peta Lahan</a>
+        <a href="finance.html"         class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span> Keuangan</a>
         <div class="sidebar-section">Akun</div>
-        <a href="subscription.html" class="sidebar-link "><span class="icon"></span> Paket</a>
-        <a href="profile.html"      class="sidebar-link "><span class="icon">◯</span> Profil</a>
+        <a href="subscription.html"    class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg></span> Paket</a>
+        <a href="profile.html"         class="sidebar-link "><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Profil</a>
       </nav>
       <div class="sidebar-footer">
         <div class="sidebar-user" id="sidebar-user-info">
           <div class="user-avatar" id="user-initial">?</div>
           <div><div class="user-name" id="user-name">Memuat…</div><div class="user-plan" id="user-plan">—</div></div>
         </div>
-        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start">> Keluar</button>
+        <button class="btn btn-ghost btn-sm btn-wide" id="logout-btn" style="margin-top:.5rem;color:rgba(255,255,255,.65);justify-content:flex-start"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg> Keluar</button>
       </div>
     </aside>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -49,44 +65,100 @@
     <main class="app-main">
       <header class="app-topbar">
         <div style="display:flex;align-items:center;gap:1rem">
-          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn" type="button" aria-label="Buka navigasi" aria-expanded="false">Menu</button>
-          <span class="topbar-title">Peta Lahan</span>
+          <button class="btn btn-ghost btn-icon hamburger" id="hamburger-btn" type="button" aria-label="Buka navigasi" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+          <span class="topbar-title" style="display:flex;align-items:center;gap:.5rem">
+            Peta Lahan &amp; Analisis AI
+            <span class="badge badge-amber" style="font-size:.6875rem">PRO</span>
+          </span>
         </div>
         <div class="topbar-actions">
           <span class="topbar-user"><span id="topbar-user-name">—</span></span>
         </div>
       </header>
+
       <div class="app-content page-enter" id="page-content">
         <div class="page-header">
           <div>
-            <h1 class="page-title">Peta Lahan</h1>
-            <p class="page-subtitle">Visualisasi lokasi dan batas lahan budidaya Anda.</p>
+            <h1 class="page-title" style="display:flex;align-items:center;gap:.6rem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+              Peta Lahan &amp; Analisis Poligon AI
+            </h1>
+            <p class="page-subtitle">Gambar batas poligon lahan Anda di peta satelit dan jalankan simulasi pemetaan zona kesehatan tanaman.</p>
           </div>
-          <button class="btn" id="save-polygon-btn" style="display:none"> Simpan Polygon</button>
         </div>
-        <div class="card card-sage" style="margin-bottom:1rem">
-          <p class="text-sm" style="color:var(--forest);margin:0"><strong>Free:</strong> Marker lokasi · <strong>Premium:</strong> Gambar polygon batas lahan + hitung luas otomatis</p>
-        </div>
-        <div id="premium-mapping-tools" style="display:none;margin-bottom:1rem">
-          <div class="card" style="border-color:var(--forest)">
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-              <div>
-                <span class="font-semibold text-forest">Alat Polygon</span>
-                <span class="text-sm text-muted" style="display:block;margin-top:2px">Klik <strong>Aktifkan</strong> lalu gambar batas lahan di peta.</span>
-              </div>
-              <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
-                <button class="btn btn-outline btn-sm" id="polygon-draw-btn"> Aktifkan Gambar</button>
-                <span class="text-sm text-muted">Luas: <strong id="polygon-area">Belum digambar</strong></span>
-              </div>
+
+        <!-- Gate untuk pengguna Free -->
+        <div id="premium-gate" class="card" style="display:none;max-width:660px;border-color:var(--amber);background:linear-gradient(135deg,#fff 0%,var(--surface-low) 100%)">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(212,154,58,.15);color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+            </div>
+            <div>
+              <span class="badge badge-amber" style="margin-bottom:.5rem">Fitur Analitik PRO</span>
+              <h3 style="font-size:1.125rem;font-weight:700;color:var(--forest);margin:.25rem 0 .5rem">Buka Peta Lahan Satelit &amp; Analisis Poligon AI</h3>
+              <p class="text-sm text-muted" style="margin:0 0 1rem;line-height:1.6">
+                Fitur gambar batas poligon lahan di peta satelit, hitung luas otomatis, dan simulasi heatmap zona kesehatan tanaman tersedia eksklusif untuk akun <strong>Premium</strong>.
+              </p>
+              <a href="subscription.html" class="btn">Upgrade ke Paket Premium</a>
             </div>
           </div>
         </div>
-        <div class="map-container">
-          <div id="farm-map" style="height:480px"></div>
-        </div>
-        <div class="card" style="margin-top:1rem">
-          <h4 style="font-size:.875rem;font-weight:600;color:var(--forest);margin:0 0 .5rem">Lahan Terdaftar</h4>
-          <div id="map-farm-list" class="text-sm text-muted">Memuat…</div>
+
+        <!-- Workspace untuk pengguna Premium / Admin -->
+        <div id="mapping-workspace" style="display:none">
+          <div class="card" style="margin-bottom:1rem;border-color:var(--forest)">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+              <div style="min-width:220px;flex:1">
+                <label class="form-label" for="map-farm-select" style="margin-bottom:.35rem;display:block">Pilih Lahan Saya</label>
+                <select class="form-select" id="map-farm-select"></select>
+              </div>
+              <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+                <button class="btn btn-outline btn-sm" id="polygon-draw-btn" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>
+                  Gambar Poligon
+                </button>
+                <button class="btn btn-outline btn-sm" id="polygon-demo-btn" type="button">Poligon Contoh</button>
+                <button class="btn btn-sm" id="analyze-polygon-btn" type="button" disabled>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                  Analisis AI Poligon
+                </button>
+                <button class="btn btn-outline btn-sm" id="save-polygon-btn" type="button" disabled>Simpan</button>
+                <button class="btn btn-ghost btn-sm" id="clear-polygon-btn" type="button">Reset</button>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--border);font-size:.8125rem">
+              <div>Luas Poligon: <strong id="polygon-area" style="color:var(--forest)">Belum digambar</strong></div>
+              <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+                <span style="display:inline-flex;align-items:center;gap:.35rem"><span style="width:12px;height:12px;border-radius:3px;background:#16a34a;display:inline-block"></span> Zona Sehat</span>
+                <span style="display:inline-flex;align-items:center;gap:.35rem"><span style="width:12px;height:12px;border-radius:3px;background:#eab308;display:inline-block"></span> Waspada</span>
+                <span style="display:inline-flex;align-items:center;gap:.35rem"><span style="width:12px;height:12px;border-radius:3px;background:#dc2626;display:inline-block"></span> Risiko Tinggi</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="mapping-grid" style="display:grid;grid-template-columns:1.45fr 1fr;gap:1.25rem;align-items:start">
+            <div class="map-container">
+              <div id="farm-map" style="height:520px"></div>
+            </div>
+
+            <div>
+              <div id="polygon-ai-result">
+                <div class="card card-sage">
+                  <h4 style="font-size:.9rem;font-weight:700;color:var(--forest);margin:0 0 .5rem">Panduan Pemetaan &amp; Analisis AI</h4>
+                  <ol style="margin:0;padding-left:1.15rem;font-size:.8125rem;color:var(--ink);line-height:1.65;display:flex;flex-direction:column;gap:.35rem">
+                    <li>Pilih lahan Anda di dropdown atas, atau klik <strong>Poligon Contoh</strong> untuk demo cepat.</li>
+                    <li>Klik <strong>Gambar Poligon</strong> lalu klik titik-titik batas sawah di peta satelit (klik titik pertama untuk menutup poligon).</li>
+                    <li>Klik <strong>Analisis AI Poligon</strong> untuk memetakan zona sehat, waspada, dan prioritas di dalam poligon lahan Anda.</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="card" style="margin-top:1rem">
+                <h4 style="font-size:.875rem;font-weight:600;color:var(--forest);margin:0 0 .5rem">Lahan Terdaftar</h4>
+                <div id="map-farm-list" class="text-sm text-muted">Memuat…</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -95,15 +167,17 @@
   <!-- Mobile bottom nav -->
   <nav class="mobile-nav-bar">
     <div class="nav-items">
-      <a href="dashboard.html"   class=""><span class="icon">◉</span><span>Dasbor</span></a>
-      <a href="farms.html"       class=""><span class="icon"></span><span>Lahan</span></a>
-      <a href="weather.html"     class=""><span class="icon"></span><span>Cuaca</span></a>
-      <a href="risk-analysis.html" class=""><span class="icon">△</span><span>Risiko</span></a>
-      <a href="finance.html"     class=""><span class="icon">Rp</span><span>Keuangan</span></a>
+      <a href="dashboard.html"      class=""><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span><span>Dasbor</span></a>
+      <a href="farms.html"          class=""><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span><span>Lahan</span></a>
+      <a href="photo-analysis.html" class=""><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span>Foto</span></a>
+      <a href="mapping.html"        class="active"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span>Peta</span></a>
+      <a href="finance.html"        class=""><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span><span>Keuangan</span></a>
     </div>
   </nav>
 
   <div id="toast-root" aria-live="polite"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
   <script type="module" src="../js/app-shell.js"></script>
   <script type="module" src="../js/pages/mapping-page.js"></script>
 </body>
