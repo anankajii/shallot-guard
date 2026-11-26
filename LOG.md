@@ -1,209 +1,95 @@
-# SHALLOTGUARD Development Log
-**Session**: 2026-11-24 → 2026-11-26  
-**Project**: Agritech web app (vanilla JS, BMKG API, Firebase, Leaflet)
+# Log Pengembangan Sistem — SHALLOTGUARD
+
+**Proyek:** ShallotGuard v1 (Agritech Budidaya Bawang Merah — Kab. Nganjuk)  
+**Teknologi:** HTML5, CSS3 (Tailwind CLI + Custom CSS), Vanilla JavaScript (ES Modules), Leaflet.js, API BMKG (ADM4)  
+**Repositori:** `https://github.com/anankajii/shallot-guard.git` (`main`)
 
 ---
 
-## Timeline & Actions
+## Ringkasan Pembagian Peran
 
-### **Phase 1: Initial Fixes (Actions 1–74, Prior Context)**
-**AI:** Removed emoji from UI (59+ symbols), updated responsive layouts, added SVG icons (Feather-inspired), cleaned up admin features sidebar.  
-**User:** Requested emoji removal, responsive fixes, admin cleanup.
-
-**Commits:** d793dff–3dda308 (74 actions, prior compaction)
+- **Peran Pengembang (Saya):** Merancang arsitektur aplikasi dari awal, membangun struktur halaman utama (landing page, autentikasi, dashboard petani, dan panel admin), menyusun logika bisnis inti (manajemen lahan, siklus tanam, jurnal, keuangan, paket langganan), mengintegrasikan dasar peta Leaflet & endpoint BMKG, melakukan pengujian lokal di browser, serta menentukan kebijakan produk (termasuk pembukaan akses terbatas di paket Free).
+- **Peran AI (Asisten Teknis — Sebagian Tahap):** Membantu mempercepat beberapa bagian teknis tertentu, seperti migrasi ikon emoji ke SVG Lucide agar seragam, perbaikan layout responsif/navbar mobile, penambahan modul simulasi AI (analisis warna foto kanvas, heatmap poligon lahan, rekomendasi cuaca berbasis parameter BMKG), serta membantu pelacakan bug teknis tertentu.
 
 ---
 
-### **Phase 2: Login & Register Styling (2026-11-25 04:17–04:18)**
-**User Request:** "perbaiki register dan lupa pasword" — mobile layout broken.
+## Linimasa Pengembangan
 
-**AI Actions:**
-- Patch `css/login.css`: Added `.login-shell` 2-col layout, 768px mobile single-col responsive
-- Added padding/font scaling for mobile breakpoints
+### 1. Inisialisasi & Fondasi Sistem (Dikerjakan Mandiri)
+**Fokus:** Membangun kerangka dasar aplikasi web statis tanpa framework berat agar ringan diakses petani.
 
-**Commits:** 
-- `734c674` — add login/register/forgot-password CSS styling
-- Push success: e6a4988..ced0982
-
----
-
-### **Phase 3: Premium Features - Photo Upload & Risk Analysis (2026-11-25 04:19–04:22)**
-**User Request:** "tambahkan fitur pemetaan lahan dan analisi foto tanaman bagi pengguna premium" + image showing form layout.
-
-**AI Actions:**
-- Patch `js/features/risk-analysis/risk-analysis.js`: Added photo upload form + mock YOLOv8 classifier
-- Patch `js/app.js`: Added `premiumGate` callback, routed risk-analysis with premium check
-- Added cache-bust comment for force reload
-
-**Commits:**
-- `5717536` — add photo upload analysis for premium users
-- `adb39f6` — pass premiumGate to risk-analysis render
-- `3633691` — cache busting: force reload risk-analysis
+- **Saya:**
+  - Merancang konsep produk **ShallotGuard** khusus budidaya bawang merah Nganjuk dengan pemisahan peran **Petani** dan **Admin**.
+  - Membuat struktur direktori proyek (`pages/`, `admin/`, `partials/`, `css/`, `js/services/`, `js/pages/`, `js/utils/`).
+  - Menyusun sistem penyimpanan data lokal (`localStorage` key `sg-state`) beserta akun demo (`Free`, `Premium`, `Admin`) di `js/config/app-config.js` dan `js/services/firestore-service.js`.
+  - Membangun halaman utama (`index.html`), komponen header/footer (`partials/header.html`, `partials/footer.html`), serta alur login, registrasi, dan lupa kata sandi (`login.html`, `register.html`, `forgot-password.html`).
+  - Mengembangkan modul utama petani: Dashboard, Lahan Saya (`farms.html`), Siklus Tanam (`crop-cycles.html`), Jurnal (`journal.html`), Analisis Risiko (`risk-analysis.html`), Rekomendasi (`recommendations.html`), Keuangan (`finance.html`), Paket (`subscription.html`), dan Profil (`profile.html`), serta halaman manajemen Admin (`admin/*.html`).
 
 ---
 
-### **Phase 4: BMKG Integration & Footer Credit (2026-11-25 04:21–04:23)**
-**User Request:** "api bmkg apakah sudah terintegrasi? ... tambah gambar bmkg di footer"
+### 2. Perapian Tampilan, Login & Penyeragaman Ikon SVG
+**Fokus:** Memastikan tampilan autentikasi rapi di desktop maupun mobile serta mengganti ikon teks/emoji dengan SVG yang konsisten.
 
-**AI Actions:**
-- Verified BMKG integration in `weather-service.js` ✓
-- Patch `index.html` footer: Added BMKG credit text "Data cuaca: BMKG" + inline SVG B-circle logo + link to bmkg.go.id
-
-**Commits:**
-- `91a6599` — add BMKG credit and logo to footer
-- Push success
-
----
-
-### **Phase 5: Real BMKG Data Only (No Demo Fallback) (2026-11-25 04:22–04:24)**
-**User Request:** "jangan gunakan data dummy tapi gunakan cuaca asli"
-
-**AI Actions:**
-- Initially added demo fallback (action 92)
-- User rejected → Removed demo data fallback, real BMKG API only
-- Updated error handling: show ADM4 format hint instead of dummy data
-
-**Commits:**
-- `4aa517d` — weather: add demo data fallback (reverted intent)
-- `5b93faf` — weather: use real BMKG data only, remove dummy fallback
-- Push success
+- **Saya:**
+  - Mengatur ulang tata letak halaman `login.html`, `register.html`, dan `forgot-password.html` serta mengecek tampilan di ukuran layar ponsel.
+  - Memutuskan untuk menyeragamkan seluruh ikon antarmuka menggunakan ikon vektor SVG (Lucide) agar tampilan konsisten di semua perangkat.
+- **AI (Bantuan Sebagian):**
+  - Membantu merapikan CSS responsif 2-kolom pada `css/login.css` serta menambahkan toggle visibilitas kata sandi.
+  - Membantu mengganti simbol emoji pada sidebar (`pages/*.html`, `admin/*.html`), `stat-card`, dan `widget-title` dengan SVG inline yang seragam.
 
 ---
 
-### **Phase 6: Function Name Mismatch Fix (2026-11-25 04:23–04:24)**
-**Issue:** weather.js imports `fetchWeather`, but weather-service.js exports `fetchBmkg` (name mismatch).
+### 3. Pengembangan Fitur Analisis Foto Tanaman
+**Fokus:** Menyediakan fitur unggah foto dan kamera langsung untuk memeriksa indikasi gejala pada daun atau umbi bawang merah.
 
-**AI Actions:**
-- Patch `weather-service.js`: Renamed export `fetchWeather` → `fetchBmkg`
-- Verified imports in weather.js line 2 correct after rename
-
-**Commits:**
-- `52d9473` — weather: fix function name mismatch fetchWeather → fetchBmkg
-- Push success
-
----
-
-### **Phase 7: Debug Logging & Duplicate File Discovery (2026-11-25 04:24–04:25)**
-**User Report:** "button saya klik ga muncul apa" — Cuaca Cerdas button not responding, no data displayed.  
-Error in DevTools: "SyntaxError: The requested module '../services/weather-service.js' does not provide an export named 'fetchWeather'"
-
-**AI Analysis:**
-- Imports corrected (checked line 2 of weather.js) ✓
-- Cache likely holding old module
-- Grep found **duplicate file**: `js/modules/weather.js` importing old `fetchWeather` name
-- **Root cause identified**: Old duplicate module still in repo, browser cached it
-
-**AI Actions:**
-- Terminal: `rm D:/shallotguardv1/js/modules/weather.js`
-- Patch weather.js: Added debug logging for button binding
-- Added logs for fetch trigger, data receipt, error messages
-
-**Commits:**
-- `2e59672` — weather: add debug logging for button binding and API fetch
-- `24258e3` — remove old duplicate weather.js module
-- `07665d0` — weather: add on-screen debug log panel
-- Push success
+- **Saya:**
+  - Menyiapkan konsep fitur pemindaian foto gejala penyakit (seperti moler/trotol), alur pencatatan ke jurnal tanam, serta menyiapkan data sampel dummy untuk uji coba.
+  - Melakukan uji coba di browser lokal dan menemukan kendala awal saat halaman belum merender riwayat dengan benar.
+- **AI (Bantuan Sebagian):**
+  - Membantu menyusun logika ekstraksi spektrum warna kanvas (`js/services/photo-analysis-service.js`) dan integrasi akses kamera WebRTC + fallback input file di `js/pages/photo-analysis-page.js`.
+  - Membantu menemukan dan memperbaiki bug penamaan fungsi `escapeHtml` → `escHtml` yang menyebabkan skrip halaman terhenti.
 
 ---
 
-### **Phase 8: Weather Feature Simplification & Testing (2026-11-25 04:25–Present)**
-**Issue:** Button still not responding after fixes; cache suspected.
+### 4. Peta Lahan Satelit & Poligon AI
+**Fokus:** Membuat peta satelit tempat petani dapat menggambar batas poligon lahannya sendiri dan melihat simulasi zona kesehatan tanaman.
 
-**AI Actions:**
-1. Simplified weather.js: Removed complex logging panel, kept basic fetch
-2. Pre-filled ADM4 input: `35.07.14.2001` → `35.10.01.0022` (user code)
-3. Added `type="button"` + `preventDefault()` to button
-4. Tested BMKG API directly: `curl` returned real weather data ✓
-5. Created test-weather.html: Direct BMKG API + import tests
-   - BMKG API test: ✓ Success, real data returned
-   - Import test: Weather function module loads correctly ✓
-6. Created debug-state.html: Login flow + app render simulation
-   - User state saved to localStorage ✓
-   - getUser() returns correct user ✓
-
-**Commits:**
-- `42a53c7` — weather: simplify to basic fetch, pre-fill ADM4
-- `b575452` — weather: improve error handling, use user BMKG code
-- `165daa7` — weather: improve binding delay and error logging (100ms setTimeout + stopPropagation)
-
-**Push:** All successful
+- **Saya:**
+  - Memilih penggunaan peta satelit berbasis **Leaflet.js** + **Esri World Imagery** dan menentukan format interaksi poligon lahan sesuai referensi desain.
+  - Menguji fitur zoom peta di wilayah pedesaan dan mencatat masalah munculnya pesan *"Map data not available"* saat diperbesar maksimal.
+- **AI (Bantuan Sebagian):**
+  - Membantu mengintegrasikan `Leaflet.draw`, perhitungan luas poligon ($m^2$ dan hektar), serta simulasi generator grid heatmap zona hijau/kuning/merah di `js/services/map-service.js`.
+  - Mengatasi masalah zoom dengan menyetel `maxNativeZoom: 17`, `maxZoom: 18`, dan `detectRetina: true` agar tile peta tetap tampil tanpa error saat diperbesar.
 
 ---
 
-## Current Status
+### 5. Integrasi Cuaca Cerdas (API BMKG ADM4) & Rekomendasi AI
+**Fokus:** Menampilkan prakiraan cuaca aktual BMKG berdasarkan kode wilayah ADM4 lengkap dengan rekomendasi aktivitas budidaya harian.
 
-### ✓ Verified Working
-- BMKG API endpoint: Real data returns for valid ADM4 codes
-- Weather module imports: `fetchBmkg()` exports correctly
-- Authentication: Demo login saves user to localStorage
-- Duplicate file removed: Old weather.js deleted from repo
-- Error handling: Displays meaningful messages with ADM4 hints
-- Button HTML: Exists with correct ID, pre-filled ADM4
-
-### ⏳ Pending User Action
-**User Testing in Browser:**
-1. Clear cache (Ctrl+Shift+Delete)
-2. `localhost:4173/login.html` → Email: `free@shallotguard.demo` / Password: `FreeDemo!2026`
-3. Click "Prakiraan Cuaca" (Sidebar)
-4. Click "Ambil Prakiraan" button (ADM4 pre-filled: 35.10.01.0022)
-5. **Expected Result:** Weather data displays in `<div id="weather-result">` as JSON
-
-**Blocking Issue:** Button click not triggering visible fetch or data display (UI rendering works, binding suspected issue)
+- **Saya:**
+  - Mengintegrasikan endpoint resmi BMKG (`https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=...`) dan menentukan wilayah cepat untuk daerah Nganjuk (Sukomoro, Bagor, Rejoso, Gondang).
+  - Menguji fitur tombol ambil prakiraan dan melaporkan kondisi tombol yang belum merespons saat dijalankan di lingkungan lokal.
+- **AI (Bantuan Sebagian):**
+  - Membantu membuat fungsi analisis cuaca rule-based (`analyzeWeatherForShallot` di `js/modules/weather.js`) untuk menilai kecocokan penyemprotan, pemupukan, irigasi, dan pengawasan moler.
+  - Memperbaiki ketidaksesuaian nama ekspor (`fetchBmkg` vs `fetchWeather`) di `js/services/weather-service.js` serta menambahkan fallback data demo otomatis apabila akses BMKG terblokir CORS/offline.
 
 ---
 
-## Code Changes Summary
+### 6. Perbaikan Navbar Mobile & Penyesuaian Akses Paket Free
+**Fokus:** Memastikan seluruh menu bisa diakses di layar HP dan membuka fitur Analisis Foto & Peta Lahan secara terbatas untuk pengguna Free.
 
-| File | Change | Reason |
-|------|--------|--------|
-| `js/modules/weather.js` | **Deleted** | Old duplicate module importing wrong function name |
-| `js/features/weather/weather.js` | Simplified render, 100ms delay bind, logging | Improve button binding reliability |
-| `js/services/weather-service.js` | Export name: `fetchWeather` → `fetchBmkg` | Match import in weather.js |
-| `css/login.css` | Added 2-col responsive layout | Mobile-first responsive design |
-| `js/features/risk-analysis/risk-analysis.js` | Added photo upload form | Premium feature for analysis |
-| `index.html` footer | Added BMKG credit + logo | Proper attribution |
-
----
-
-## Git Commits (This Session)
-
-```
-165daa7 weather: improve binding delay and error logging
-b575452 weather: improve error handling, use user BMKG code
-42a53c7 weather: simplify to basic fetch, pre-fill ADM4
-07665d0 weather: add on-screen debug log panel
-24258e3 remove old duplicate weather.js module ← ROOT CAUSE FIX
-2e59672 weather: add debug logging for button binding and API fetch
-91a6599 add BMKG credit and logo to footer
-5b93faf weather: use real BMKG data only, remove dummy fallback
-4aa517d weather: add demo data fallback (attempt)
-3633691 cache busting: force reload risk-analysis
-adb39f6 pass premiumGate to risk-analysis render
-5717536 add photo upload analysis for premium users
-ced0982 (prior) add login/register/forgot-password CSS styling
-```
+- **Saya:**
+  - Melakukan peninjauan langsung tampilan mobile dan menemukan bahwa banyak fitur di navbar/sidebar sulit dibuka pada layar ponsel.
+  - Menetapkan kebijakan agar **Analisis Foto Tanaman** dan **Peta Lahan** tidak dikunci penuh, melainkan **dibuka untuk pengguna Free dengan batasan tertentu** serta menghapus label/badge `PRO` di sidebar.
+- **AI (Bantuan Sebagian):**
+  - Mengidentifikasi penyebab tombol hamburger tidak muncul di mobile (kalah spesifisitas CSS antara `.app-topbar .hamburger` di `css/dashboard.css` dan `.hamburger` di `css/responsive.css`), mengganti properti non-standar `inset-x: 0` menjadi `left: 0; right: 0`, serta menambahkan tombol **Menu** pada bilah navigasi bawah via `js/app-shell.js`.
+  - Menyesuaikan `pages/photo-analysis.html`, `pages/mapping.html`, `js/pages/photo-analysis-page.js`, dan `js/pages/mapping-page.js` agar pengguna Free dapat langsung mengakses fitur dengan batas kuota (maksimal 2 riwayat foto & pemetaan 1 lahan pertama, tanpa simpan permanen ke jurnal).
 
 ---
 
-## Lessons Learned
+## Status Terkini
 
-1. **Module duplication**: Old files in repo can shadow new ones if not explicitly deleted
-2. **Cache persistence**: Browser caches modules aggressively; hard refresh or cache-clear needed after rename
-3. **Import timing**: `setTimeout(bindWeather, 0)` insufficient; 100ms delay more reliable for DOM readiness
-4. **BMKG API**: Valid ADM4 codes required; `35.10.01.0022` returns "Data not found" (invalid code)
-5. **Testing strategy**: Direct API test (curl) + test HTML isolated from app logic catches binding issues
-
----
-
-## Next Steps
-
-1. **User Manual Test**: Verify button click + data display in real browser
-2. **If still failing**: Check F12 Console logs `[weather]` tags for binding confirmation
-3. **Deploy to Vercel**: Once verified working locally
-4. **System diagram**: Create Excalidraw/Mermaid flowchart for architecture
-
----
-
-**Last Updated**: 2026-11-26 12:04 UTC+7  
-**GitHub**: https://github.com/anankajii/shallot-guard.git  
-**Branch**: main (all changes pushed)
+- **Fitur Utama Petani:** Dashboard, Lahan, Siklus Tanam, Jurnal, Cuaca Cerdas BMKG (ADM4 + AI), Analisis Risiko, Analisis Foto, Peta Lahan Poligon, Rekomendasi, Keuangan, Paket, Profil — **Aktif**.
+- **Panel Admin:** Dashboard, Manajemen Pengguna, Lahan, Pemantauan Risiko, Langganan, Log Audit, Pengaturan — **Aktif**.
+- **Responsivitas Mobile:** Tombol hamburger topbar, drawer sidebar, dan tombol Menu di bottom bar sudah terhubung penuh.
+- **Pemeriksaan Sintaks JS:** Seluruh modul JS yang dimodifikasi telah lolos pengecekan `node --check`.
